@@ -1,0 +1,219 @@
+
+<h2><b>Service Dashboard - <input type="date" [(ngModel)]="passed_date_value"></b> <button (click)="ngOnInit()">Search</button> </h2>
+
+<div class="col-md-12" style="text-align: right;">
+    <button class="btn btn-secondary" (click)="today()">Today</button>
+</div>
+
+   <br>
+   <br>
+  <div class="row" style="background: white;">
+      <div class="col-md-6">
+        <div style="text-align: center;">
+          <h3>({{passed_date_value}}) OVER ALL BRANCH GRAPH</h3>
+        </div>
+        <div class="row" style="background: white;padding: 10px;">
+          <div class=" stylecont text-center" style="margin-left: 10%;" (click)="filter('')">
+              <span class=""  >No of Users <p class="countstyle"> {{count_value_total}}</p></span>
+          </div>
+          <div class=" stylecont text-center "  (click)="filter('Log In')">
+              <span class=""  >No of Log in<p class="countstyle">{{count_value_present}}</p></span>
+          </div>
+          <div class=" stylecont text-center "  (click)="filter('Log Out')">
+              <span class=""  >No of Log Out<p class="countstyle">{{count_value_logout}}</p></span>
+          </div>
+          <div class=" stylecont text-center " (click)="filter('Not Login')">
+              <span class=""  >No of Not Login<p class="countstyle">{{count_value_notlogin}}</p></span>
+          </div>          
+          <div class="col-md-12">
+            <hr>
+            <div style="display: block">
+              <canvas baseChart
+                      [datasets]="barChartData"
+                      [labels]="mbarChartLabels"
+                      [options]="barChartOptions"
+                      [colors]="barChartColors"
+                      [legend]="barChartLegend"
+                      [chartType]="barChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+            </div>
+          </div>
+      </div>
+      </div>    
+      <div class="col-md-6">
+        <div style="text-align: center;">
+          <h3>({{passed_date_value}}) OVER ALL BRANCH DETAIL</h3><button type="button" class="btn btn-secondary" (click)="exceldownload()"> Excel</button>
+        </div>
+        <br>
+       <input class="form-control" type="text" name="search2"
+       [(ngModel)]="searchQR" autocomplete="off" placeholder="Search...">
+       <p-table [value]="final_data | filter:searchQR" styleClass="ui-table-customers" #tt [paginator]="true" [rows]="5"
+                [rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['type']">
+                <ng-template pTemplate="header">
+                <tr class="thhead">
+                  <th style="font-size: 12px; width: 10px;" ></th>
+                  <th style="font-size: 12px; width: 30%;" >Name</th>
+                  <th style="font-size: 12px;" >Type</th>
+                  <th style="font-size: 12px;" >Branch</th>
+                  <th style="font-size: 12px;" >Status</th>
+                  <th style="font-size: 12px;" >In Time</th>
+                  <th style="font-size: 12px;" >Out Time</th>
+                  <th style="font-size: 12px;" >Log Out Reason</th>
+                </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item  let-i="rowIndex">
+                <tr class="tdrow">
+                  <td style="font-size: 12px; width: 10px;" >{{i+1}}</td>
+                  <td style="font-size: 12px;" >{{item.user_name}}</td>
+                  <td style="font-size: 12px;" >{{item.emp_type}}</td>
+                  <td style="font-size: 12px;" >{{item.user_location}}</td>
+                  <td style="font-size: 12px;" >{{item.user_type}}</td>
+
+                  <td style="font-size: 12px;" *ngIf="item.last_login_time == '-'"  >{{item.last_login_time}}</td>
+                  <td style="font-size: 12px;" *ngIf="item.last_login_time !== '-'"  >{{item.last_login_time | date : 'HH:mm'}}</td>
+
+                  <td *ngIf="item.Documents == ''" style="font-size: 12px;">-</td>
+                  <td *ngIf="item.Documents !== ''" style="font-size: 12px;">{{item.last_logout_time | date : 'HH:mm'}}</td>
+                  
+                  <td style="font-size: 12px;" >{{item.Documents}}</td>
+                </tr>
+                </ng-template>
+        </p-table> 
+
+
+      </div>
+  </div>
+
+  <hr>
+
+  
+
+  <div style="text-align: center;">
+    <h3>({{passed_date_value}}) OVER ALL BRANCH WISE LOGIN DATA</h3> <button type="button" class="btn btn-secondary" (click)="filter_2()"> FILTER</button>
+  </div>
+  <div class="row">
+    <div class="col-md-12" style="background: white;padding: 10px;margin: 10px;">
+      <div class="scrolling-wrapper">
+        <ng-container *ngFor="let item of branchList;let i = index">
+          <div class="card">
+            <div style="text-align: center;">
+              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"  (change)="change(item, $event, i)" >
+            </div>
+            <div class="stylecont text-center" style="margin-left: 10%;" >
+              <span class="">{{item.branch_code}}<p class="countstyle"> {{item.count_value_present}} / {{item.count_value_total}}</p></span>
+            </div>
+          </div>
+          </ng-container>
+  </div>
+  </div>
+
+
+
+  <div class="row" style="padding: 30px;background: white;">
+    <div class="row col-md-12">
+      <div class=" stylecont text-center" style="margin-left: 30%;" (click)="filter('')">
+        <span class=""  >No of Users <p class="countstyle"> {{total_count_value_total}}</p></span>
+    </div>
+    <div class=" stylecont text-center "  (click)="filter('Log In')">
+        <span class=""  >No of Log in<p class="countstyle">{{total_count_value_present}}</p></span>
+    </div>
+    <div class=" stylecont text-center "  (click)="filter('Log Out')">
+        <span class=""  >No of Log Out<p class="countstyle">{{total_count_value_logout}}</p></span>
+    </div>
+    <div class=" stylecont text-center " (click)="filter('Not Login')">
+        <span class=""  >No of Not Login<p class="countstyle">{{total_count_value_notlogin}}</p></span>
+    </div>          
+    </div>
+    <div class="row" >
+
+      <div class="col-md-8">
+      <input class="form-control" type="text" name="search2"
+      [(ngModel)]="searchQRbranch" autocomplete="off" placeholder="Search...">
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-secondary" (click)="exceldownload2()"> Excel</button>
+      </div>
+      <br>
+      <br>
+
+    <div class="col-md-12">
+    <p-table [value]="selected_branch | filter:searchQRbranch" styleClass="ui-table-customers" #tt [paginator]="true" [rows]="5"
+                  [rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true"
+                  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['type']">
+                  <ng-template pTemplate="header">
+                  <tr class="thhead">
+                    <th>S.no</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Branch</th>
+                    <th>Log in Status</th>
+                    <th>Log in time</th>
+                    <th>Log out time</th>
+                    <th>Log in Reason</th>
+                  </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-item  let-i="rowIndex">
+                  <tr class="tdrow">
+                    <td>{{i+1}}</td>
+                    <td>{{item.user_name}}</td>
+                    <td>{{item.emp_type}}</td>
+                    <td>{{item.user_location}}</td>
+                    <td>{{item.user_type}}</td>
+                    <td style="font-size: 12px;" *ngIf="item.last_login_time == '-'"  >{{item.last_login_time}}</td>
+                    <td style="font-size: 12px;" *ngIf="item.last_login_time !== '-'"  >{{item.last_login_time | date : 'HH:mm'}}</td>
+                    
+                    <td *ngIf="item.Documents == ''" >-</td>
+                    <td *ngIf="item.Documents !== ''" >{{item.last_logout_time | date : 'HH:mm'}}</td>
+                    <td>{{item.Documents}}</td>
+                  </tr>
+                  </ng-template>
+    </p-table>       
+      
+    </div> 
+   </div>            
+   </div>
+
+
+  <div class="col-md-12">
+  <div style="text-align: center;">
+    <h3>({{passed_date_value}}) OVER ALL BRANCH WISE LOGIN GRAPH</h3>
+  </div>
+    <hr>
+    <div style="display: block">
+      <canvas baseChart
+              [datasets]="barChartData_one"
+              [labels]="mbarChartLabels_one"
+              [options]="barChartOptions_one"
+              [colors]="barChartColors_one"
+              [legend]="barChartLegend_one"
+              [chartType]="barChartType_one"
+              (chartHover)="chartHovered($event.target.value)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

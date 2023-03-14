@@ -1,0 +1,125 @@
+<section class="pb-4">
+    <div class="page-header">
+        <div>
+            <h2 class="main-content-title tx-24 mb-1"></h2>
+        </div>
+        <div class="col-md-6 text-right">
+            <button type="button" class="btn btn-primary" (click)="printComponent('component1')"><i class="fas fa-download"></i>
+                Download</button>
+        </div>
+    </div>
+    <div class="container" id="component1">
+    <div class="row bg" class="border border-secondary pd-4" style="background: white;color: black;">
+        <div class="col"></div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 center font-weight-normal ">
+                <h2 class="main-content-title tx-24 mb-1">JOHNSON LIFTS PRIVATE LIMITED</h2>
+            </div>
+            <div class="col-4 sic"><img src="../../../../assets/images/logo.PNG" alt=""  style="width: 50%;"></div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+
+            </div>
+            <div class="col-8 ">
+                <h2 class="main-content-title tx-24 mb-1 pd">MR REPORT</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 p-4">
+                <h2 class="main-content-title tx-24 mb-1 border border-primary center bg1">MEC RISE MR
+                </h2>
+            </div>
+            <div class="col-6 p-4">
+                <h2 class="main-content-title tx-24 mb-1 border border-primary center bg1">ENG RISE MR
+                </h2>
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-6 pl-5 pr-5">
+                <div class="row  border border-secondary ">
+                    <div class="col-12 ht">
+                        <h2 class="main-content-title tx-24 mb-1 pt-1">Material Details</h2>
+                        <table>
+                            <tr>
+                              <th>MR S.no</th>
+                              <th>Material Detail</th>
+                            </tr>
+                            <tr>
+                              <td>MR 1</td>
+                              <td>{{storaged_data.mr_1}}</td>
+                              
+                            </tr>
+                            <tr>
+                                <td>MR 2</td>
+                                <td>{{storaged_data.mr_2}}</td>
+                              </tr>
+                              <tr>
+                                <td>MR 3</td>
+                                <td>{{storaged_data.mr_3}}</td>
+                              </tr>
+                              <tr>
+                                <td>MR 4</td>
+                                <td>{{storaged_data.mr_4}}</td>
+                              </tr>
+                              <tr>
+                                <td>MR 5</td>
+                                <td>{{storaged_data.mr_5}}</td>
+                              </tr>
+                              <tr>
+                                <td>MR 6</td>
+                                <td>{{storaged_data.mr_6}}</td>
+                              </tr>
+                              <tr>
+                                <td>MR 7</td>
+                                <td>{{storaged_data.mr_7}}</td>
+                              </tr>
+                              <tr>
+                                <td>MR 8</td>
+                                <td>{{storaged_data.mr_8}}</td>
+                              </tr>
+                              <tr>
+                                <td>MR 9</td>
+                                <td>{{storaged_data.mr_9}}</td>
+                              </tr>
+                              <tr>
+                                <td>MR 10</td>
+                                <td>{{storaged_data.mr_10}}</td>
+                              </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 pl-5 pr-5">
+                <div class="row border border-secondary ">
+                    <div class="col-12 ht">
+                        <h2 class="main-content-title tx-24 mb-1 pt-1">Material Details</h2>
+                        <table>
+                            <tr>
+                              <th>MR S.no</th>
+                              <th>Part No</th>
+                              <th>Qty</th>
+                            </tr>
+                           <ng-container *ngFor="let item of mr_details_oracel;let i = index" >
+                            <tr>
+                                <td>MR {{i+1}}</td>
+                                <td>{{item.JLS_SCCM_MATLID}}</td>
+                                <td>{{item.JLS_SCCM_QTY}}</td>
+                            </tr>
+                           </ng-container> 
+                        </table>
+
+                        <h2 *ngIf="mr_details_oracel.length == 0">No MR Rised</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+    </div>
+   </div>
+
+</section>

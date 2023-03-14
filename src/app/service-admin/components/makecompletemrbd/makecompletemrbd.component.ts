@@ -1,0 +1,72 @@
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../api.service';
+import { CurrentLoginComponent } from '../../components/current-login/current-login.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Pipe, PipeTransform } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
+import { ExcelService } from '../../../excel.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
+
+@Component({
+  selector: 'app-makecompletemrbd',
+  templateUrl: './makecompletemrbd.component.html',
+  styleUrls: ['./makecompletemrbd.component.css']
+})
+export class MakecompletemrbdComponent implements OnInit {
+  final_data = [];
+  search:any;
+  searchQR : any;
+  S_Date:any;
+  E_Date:any;
+  rows:any;
+
+
+
+  constructor(private router:Router,private _api: ApiService, public dialog: MatDialog,private excelservice: ExcelService, private toastr:ToastrManager) { }
+
+  ngOnInit(): void {  
+
+  }
+  refersh(){
+    this.ngOnInit();
+  }
+
+  make_complete(data,index)
+  {
+   let a  = {
+_id :  data._id,  
+JOB_STATUS : 'Job Submitted',
+JOB_VIEW_STATUS : 'Update By Admin',
+LAST_UPDATED_TIME : ""+new Date(),
+JOB_START_TIME : ""+new Date(),
+JOB_END_TIME : ""+new Date(),
+   }
+   this._api.mr_bd_mark_complete(a).subscribe((data:any)=>{
+    // this.toastr.successToastr("Moved to Job Submit");
+      // alert("Moved to Job Submit");
+      this.rows[index].delete_status = true;
+      // this.submit();
+   });
+  }
+
+  make_new(data)
+  {
+  }
+
+  submit(){
+
+    this.E_Date.setDate( this.E_Date.getDate() + 1)
+    let data = {
+      "from_date":   new DatePipe('en-US').transform(this.S_Date,'yyyy-MM-dd') ,
+      "to_date": new DatePipe('en-US').transform(this.E_Date ,'yyyy-MM-dd')
+    }
+    this._api.mr_breakdown_date_wise_filter(data).subscribe((data:any)=>{
+     this.rows=data['Data'];
+     this.rows = this.rows.sort((a, b) => a.pm_date > b.pm_date ? 1 : -1);
+    });
+  }
+
+}
+
+

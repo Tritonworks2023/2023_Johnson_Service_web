@@ -1,0 +1,85 @@
+<div class="modal-header" style="position: relative;
+bottom: 21px;">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="font-size: 25px !important;padding-top: 25px; ">Audit Job List</h5>
+        <!-- <button type="button" class="close"  mat-dialog-close aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="search-hero">
+                <div class="input-group mb-3">
+                   <div class="input-group-prepend">
+                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                   </div>
+                   <input class="form-control" type="text" name="search2" [(ngModel)]="searchQR" autocomplete="off" placeholder="Search...">
+                 </div>
+              </div>
+        </div>
+        <!-- <div class="col-md-6 text-right">
+            <button type="button" class="btn btn-secondary" (click)="refersh()"><i class="fas fa-sync-alt"></i> Refresh</button>
+        </div> -->
+    </div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="search-hero">
+            <div class="input-group mb-3">
+          
+             <p-calendar [(ngModel)]="S_Date" [showIcon]="true" inputId="icon" placeholder="Start Date" class="mr-3"></p-calendar>
+<p-calendar [(ngModel)]="E_Date" [showIcon]="true" inputId="icon" placeholder="End Date" class="mr-3"></p-calendar>
+
+             </div>
+          </div>
+          
+    </div>
+    <div class="col-md- text-left pt-2"><button type="button" class="btn btn-primary" (click)="submit()">Submit</button></div>
+    <div class="col-md- text-right pt-2">
+        <button type="button" class="btn btn-secondary" (click)="tt.filter($event.target.value, 'user_mobile_no', '');tt.filter($event.target.value, 'user_name', '');
+        tt.filter($event.target.value, 'att_start_time', '');tt.filter($event.target.value, 'att_end_time', '');
+    tt.filter($event.target.value, 'att_no_of_hrs', '');tt.filter($event.target.value, 'att_status', '');tt.filter($event.target.value, 'att_reason', ''); refersh()"><i class="fas fa-sync-alt"></i> Refresh</button>
+    </div>
+  
+</div>
+<div class="table-responsive">
+    <p-table [value]="rows| filter:searchQR "styleClass="ui-table-customers" #tt [paginator]="true" [rows]="10"
+[rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true"
+currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['type']">
+<ng-template pTemplate="header">
+<tr class="thhead">
+<!-- <th class="th-1">
+S.No
+</th> -->
+<th style=" width: 70px ">S.NO</th>
+<th style=" width: 100px ">Job No</th>
+<th style=" width: 150px ">Com No</th>
+<th style=" width: 100px ">BR Code</th>
+<th style=" width: 100px ">MEC No</th>
+<th style=" width: 100px ">BD Date</th>
+<th style=" width: 100px ">JOB STATUS</th>
+<th style=" width: 100px ">Action</th>
+</tr>
+</ng-template>
+<ng-template pTemplate="body" let-item  let-i="rowIndex">
+<tr class="tdrow">
+
+<td>{{i+1}}</td>
+<td>{{item.job_id}}</td>
+<td>{{item.SMU_SCH_COMPNO}}</td>
+<td>{{item.SMU_SCH_BRCODE}}</td>
+<td>{{item.SMU_SCH_MECHCELL}}</td>
+<td>{{item.pm_date | date}}</td>
+<td>{{item.JOB_STATUS}}</td>
+<td class="act">
+ <!-- <i style="color: #2196f3;" class="fas fa-upload" aria-hidden="true"  pTooltip="Make As Submit" (click)="make_complete(item)"></i> -->
+ 
+ <i style="color: #2196f3;" class="fas fa-upload" aria-hidden="true"  pTooltip="Make As Submit" (click)="make_complete(item,i)" *ngIf="!item.delete_status"></i>
+ <i style="color: #2196f3;" class="fas fa-check" aria-hidden="true"  pTooltip="Deleted" *ngIf="item.delete_status"></i>
+
+
+ <!-- <i style="color: #fd2c3a;" class="fa fa-trash" aria-hidden="true" pTooltip="Delete" (click)="make_new(item)"></i>  -->
+</td> 
+</tr>
+</ng-template>
+</p-table>
+</div>
+

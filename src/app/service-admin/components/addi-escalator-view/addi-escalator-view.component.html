@@ -1,0 +1,367 @@
+<section class="pb-4">
+    <div class="page-header">
+        <div>
+            <h2 class="main-content-title tx-24 mb-1"></h2>
+            <!-- <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="dashboard">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">App User Management</li>
+                </ol> -->
+        </div>
+        <div class="col-md-6 text-right">
+            <button type="button" class="btn btn-primary" (click)="printComponent('component1')"><i class="fas fa-download"></i>
+                Download</button>
+        </div>
+
+    </div>
+    <div class="container" id="component1">
+    <div class="row bg" class="border border-secondary pd-4" style="background: white;color: black;">
+        <div class="col"></div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 center font-weight-normal ">
+                <h2 class="main-content-title tx-24 mb-1">JOHNSON LIFTS PRIVATE LIMITED</h2>
+                <p>{{branch_name}}</p>
+                <!-- <p> ORISSA 751015 PH- 0674-2554638, 3270085,2354238</p> -->
+            </div>
+            <div class="col-4 sic"><img src="../../../../assets/images/logo.PNG" alt=""  style="width: 50%;"></div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+
+            </div>
+            <div class="col-8 ">
+                <h2 class="main-content-title tx-24 mb-1 pd">ESCALATOR SURVEY FORM</h2>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-12 p-4">
+                <h2 class="main-content-title tx-24 mb-1 border border-primary center bg1">BREAKDOWN SERVICE DETAILS
+                </h2>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-12 pl-5 pr-5">
+                <div class="row  border border-secondary ">
+                    <div class="col-12">
+                        <div class="row justify-content-center" style="background-color: #006598;">
+                            <h2 class="main-content-title tx-24 mb-1 pt-1" style="color: white;">JOB DETAILS </h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row">
+                              
+                                    <div class="col-5">
+
+                                        <p class="main-content-title tx-24 mb-1 pt-1">JOB NO</p>
+                                        
+                                      
+                                        
+                                    </div>
+                                    <div class="col-1">
+                                     
+                                        <p class="main-content-title tx-24 mb-1 pt-1">:</p>
+                                        
+                                     
+                                        
+                                    </div>
+                                    <div class="col-6">
+                                        
+                                        <p class="main-content-title tx-24 mb-1 pt-1">{{storaged_data.job_id}}</p>
+                                        
+                                   
+                                        
+                                    </div>
+                                </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <h2 class="main-content-title tx-20 mb-1 pt-1">BUILDING NAME </h2>
+                                            </div>
+                                            <div class="col-1">
+                                              
+                                             
+                                            <h2 class="main-content-title tx-20 mb-1 pt-1">: </h2>
+                                                
+                                            </div>
+                                            <div class="col-6">
+                                           
+                                               
+                                                <h2 class="main-content-title tx-20 mb-1 pt-1">{{storaged_data.building_name}}</h2>
+                                                
+                                            </div>
+                                        </div>
+                                     
+                                        <div class="row">
+                              
+                                            <div class="col-5">
+                                            
+                                                <p class="main-content-title tx-20 mb-1 pt-1">MACHINE TYPE</p>
+                                              
+                                                
+                                            </div>
+                                            <div class="col-1">
+                                                
+                                                <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+                                             
+                                                
+                                            </div>
+                                            <div class="col-6">
+                                                
+                                                <p class="main-content-title tx-20 mb-1 pt-1">{{storaged_data.machine_type}}</p>
+                                           
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                              
+                                            <div class="col-5">
+                                            
+                                                <p class="main-content-title tx-20 mb-1 pt-1">ADDRESS</p>
+                                              
+                                                
+                                            </div>
+                                            <div class="col-1">
+                                                
+                                                <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+                                             
+                                                
+                                            </div>
+                                            <div class="col-6">
+                                                
+                                                <p class="main-content-title tx-20 mb-1 pt-1">{{storaged_data.cus_address}}</p>
+                                           
+                                                
+                                            </div>
+                                        </div>
+                                   
+                            </div>
+                            <div class="col-6">
+                               
+                             
+                                <div class="row">
+                              
+                                    <div class="col-5">
+                                   
+                                        <h2 class="main-content-title tx-24 mb-1 pt-1">CONTROLLER TYPE</h2>
+                                      
+                                        
+                                    </div>
+                                    <div class="col-1">
+                                      
+                                     
+                                        <h2 class="main-content-title tx-24 mb-1 pt-1">: </h2>
+                                        
+                                    </div>
+                                    <div class="col-6">
+                                   
+                                       
+                                        <h2 class="main-content-title tx-24 mb-1 pt-1">{{storaged_data.controller_type}} </h2>
+                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                      
+                                    <div class="col-5">
+                                    
+                                        <p class="main-content-title tx-24 mb-1 pt-1">SURVEYED ON</p>
+                                      
+                                        
+                                    </div>
+                                    <div class="col-1">
+                                        
+                                        <p class="main-content-title tx-24 mb-1 pt-1">:</p>
+                                     
+                                        
+                                    </div>
+                                    <div class="col-6">
+                                        
+                                        <p class="main-content-title tx-24 mb-1 pt-1">{{storaged_data.survey_no}}</p>
+                                   
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                              
+                                    <div class="col-5">
+                                   
+                                        <h2 class="main-content-title tx-20 mb-1 pt-1">INSTALLED ON</h2>
+                                      
+                                        
+                                    </div>
+                                    <div class="col-1">
+                                      
+                                     
+                                        <h2 class="main-content-title tx-20 mb-1 pt-1">: </h2>
+                                        
+                                    </div>
+                                    <div class="col-6">
+                                   
+                                       
+                                        <h2 class="main-content-title tx-20 mb-1 pt-1">{{storaged_data.installed_on}} </h2>
+                                        
+                                    </div>
+                                </div>
+                             
+                               
+                                <div class="row">
+                      
+                                    <div class="col-5">
+                                    
+                                        <p class="main-content-title tx-20 mb-1 pt-1">DATE </p>
+                                      
+                                        
+                                    </div>
+                                    <div class="col-1">
+                                        
+                                        <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+                                     
+                                        
+                                    </div>
+                                    <div class="col-6">
+                                        
+                                        <p class="main-content-title tx-20 mb-1 pt-1">{{storaged_data.survey_no}}</p>
+                                   
+                                        
+                                    </div>
+                                </div> 
+                                </div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    
+        <div class="row pb-3 pt-4">
+            <div class="col-12 pl-5 pr-5">
+                <div class="row  border border-secondary ">
+                   
+                    <div class="col-12 ht ">
+                        <div class="row justify-content-center" style="background-color:#006598;">
+                            <h2 class="main-content-title tx-24 mb-1 pt-1 " style="color: white;">CHECK LIST</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h2>MACHINE</h2>
+                                <table>
+                                    <tr><th style="width: 65%;" >BREAK / ARM / LINER </th><th>{{storaged_data.machine}}</th></tr>
+                                    <tr><th  style="width: 65%;" >GEAR</th><th>{{storaged_data.gear}}</th></tr>
+                                    <tr><th style="width: 65%;" >MOTOR</th><th>{{storaged_data.motor}}</th></tr>
+                                    <tr><th style="width: 65%;" >BRAKE MOTOR/ NINGBO XINDA</th><th>{{storaged_data.brake_motor}}</th></tr>
+                                </table>   
+                                <hr>
+                                <h2>CONTROLLER</h2>
+                                <table>
+                                    <tr><th style="width: 65%;" >P.L.C./ MICRO PROCESSOR </th><th>{{storaged_data.micro_process}}</th></tr>
+                                    <tr><th style="width: 65%;" >RELAYS</th><th>{{storaged_data.relays}}</th></tr>
+                                    <tr><th style="width: 65%;" >CONTACTOR</th><th>{{storaged_data.contractor}}</th></tr>
+                                    <tr><th style="width: 65%;" >CONTROLLER INSPECTION PLUG</th><th>{{storaged_data.controller_inspec}}</th></tr>
+                                    <tr><th style="width: 65%;" >CONTROLLER COOLING FAN</th><th>{{storaged_data.controller_colling_fan}}</th></tr>
+                                    <tr><th style="width: 65%;" >VVVF CONDITION</th><th>{{storaged_data.vvvf_conducation}}</th></tr>
+                                    <tr><th style="width: 65%;" >ALL PCBS</th><th>{{storaged_data.all_pcbs}}</th></tr>
+
+                                </table>  
+                                <hr>
+                                <h2>COMPONENTS</h2>
+                                <table>
+                                    <tr><th  style="width: 65%;" >MAIN SHAFT BEARING CONDITION</th><th>{{storaged_data.main_shaft}}</th></tr>
+                                    <tr><th  style="width: 65%;" >STEP ROLLER</th><th>{{storaged_data.step_roller}}</th></tr>
+                                    <tr><th  style="width: 65%;" >STEP CHAIN ROLLER</th><th>{{storaged_data.step_chain_roller}}</th></tr>
+                                    <tr><th  style="width: 65%;" >HANDRAIL CONDITION</th><th> {{storaged_data.handrail_con}} </th></tr>
+                                    <tr><th  style="width: 65%;" >HANDRAIL TENSION WHEEL</th><th>{{storaged_data.handrail_tension}}</th></tr>
+                                    <tr><th  style="width: 65%;" >COMB TEETH</th><th>{{storaged_data.comb_teeth}}</th></tr>
+                                    <tr><th  style="width: 65%;" >STEPS CONDITION</th><th>{{storaged_data.steps_conducation}}</th></tr>
+                                    <tr><th  style="width: 65%;" >SKIRTING BRUSH</th><th>{{storaged_data.skirting_brush}}</th></tr>
+                                    <tr><th  style="width: 65%;" >BALUSTRADE GLASS / STANDARD GLASS</th><th>{{storaged_data.glass}}</th></tr>
+                                    <tr><th  style="width: 65%;" >S S BALUSTRADE</th><th>{{storaged_data.ss_balustrade}}</th></tr>
+                                    <tr><th  style="width: 65%;" >END REVESABLE BEARING </th><th>{{storaged_data.end_revesable_bear}}</th></tr>
+                                    <tr><th  style="width: 65%;" >SUB ROLLER</th><th>{{storaged_data.sub_roller}}</th></tr>
+                                    <tr><th  style="width: 65%;" >HANDRAIL PEDESTAL BEARING ASSUMBLY</th><th>{{storaged_data.handrail_ped}}</th></tr>
+
+
+                                    <tr><th  style="width: 65%;" >MAIN DRIVE CHAIN /  HANDRAIL CHAIN CONDITION</th><th>{{storaged_data.main_drive}}</th></tr>
+                                    <tr><th  style="width: 65%;" >PINION WHEEL CONDITION</th><th>{{storaged_data.pinion_wheel}}</th></tr>
+                                    <tr><th  style="width: 65%;" >DRIVE CHAIN SLIDER</th><th>{{storaged_data.drive_chain_slider}}</th></tr>
+                                    <tr><th  style="width: 65%;" >TANGENT RAIL</th><th>{{storaged_data.tangent_rail}}</th></tr>
+
+                                </table>  
+                                <hr>
+                                <h2>ELECTRICAL SAFETYS</h2>
+                                <table>   
+                                    <tr><th  style="width: 65%;" >ALL SAFETY SWITCHS CONDITION </th><th>{{storaged_data.all_safety_switchs}}</th></tr>
+                                    <tr><th  style="width: 65%;" >CABLE CONDITION </th><th>{{storaged_data.cable_conducation}}</th></tr>
+                                    <tr><th  style="width: 65%;" >S.M.P.S. BOARD</th><th>{{storaged_data.smps_board}}</th></tr>
+                                    <tr><th  style="width: 65%;" >EMERGENCY STOP BUTTON (TOP AND BOTTOM).</th><th>{{storaged_data.eme_stop_button}}</th></tr>
+                                    <tr><th  style="width: 65%;" >KEY SWITCHES </th><th>{{storaged_data.key_switch}}</th></tr>
+                                    <tr><th  style="width: 65%;" >SENSORS </th><th>{{storaged_data.sensors}}</th></tr>
+                                    <tr><th  style="width: 65%;" >INSPECTION PLUGS</th><th>{{storaged_data.inspec_plugs}}</th></tr>
+
+                                </table>  
+                                <hr>
+                                <h2>LIGHTINGS CONDITION</h2>
+                                <table>
+                                    <tr><th  style="width: 65%;" >STEP GAP LIGHTS</th><th>{{storaged_data.step_gap_light}}</th></tr>
+                                    <tr><th  style="width: 65%;" >SKIRTING LIGHTS</th><th>{{storaged_data.skirting_light}}</th></tr>
+                                    <tr><th  style="width: 65%;" >PIT LIGHTS</th><th>{{storaged_data.pit_light}}</th></tr>
+                                    <tr><th  style="width: 65%;" >COMB LIGHTS</th><th>{{storaged_data.comb_light}}</th></tr>
+                                    <tr><th  style="width: 65%;" >TRAFFIC LIGHTS</th><th>{{storaged_data.traffic_light}}</th></tr>
+                                    <tr><th  style="width: 65%;" >HANDRAIL LIGHTS</th><th>{{storaged_data.handrail_light}}</th></tr>
+                                    <tr><th  style="width: 65%;" >ESCALATOR SAFE TO OPERATE</th><th>{{storaged_data.escaltor_safe_op}}</th></tr>
+                                    <tr><th  style="width: 65%;" >MAJOR CONCERN AREA IF ANY</th><th>{{storaged_data.major_concern}}</th></tr>
+                                    <tr><th  style="width: 65%;" >RECOMMENDATIONS IF ANY</th><th>{{storaged_data.recommendation}}</th></tr>
+                                </table>  
+                                <hr>
+                                <h2>CUSTOMER DETAILS</h2>
+                                <table>
+
+                                    <tr><th style="width: 65%;">CUSTOMER DETAILS</th><th>{{storaged_data.cus_name}}</th></tr>
+                                    <tr><th style="width: 65%;">CUSTOMER NAME</th><th>{{storaged_data.cus_desg}}</th></tr>
+                                    <tr><th style="width: 65%;">CONTACT NO</th><th>{{storaged_data.cus_contract}}</th></tr>
+                                    <tr><th style="width: 65%;">DESIGNATION</th><th>{{storaged_data.cus_desg}}</th></tr>
+                                    <tr><th style="width: 65%;">SURVEY CONDUCTED BY </th><th>{{storaged_data.submitted_by_name}}</th></tr>
+                                    <tr><th style="width: 65%;">SIGNATURE </th><th>  <img style="width: 80%;height: 80px;"  src="{{storaged_data.cus_survey_by_signature}}"></th></tr>
+                                </table>    
+                                 <hr>
+                                <h2>SUBMITTED</h2>
+                                <table>
+                                    <tr><th  style="width: 65%;" >Submitted by Num </th><th>{{storaged_data.submitted_by_num}}</th></tr>
+                                    <tr><th  style="width: 65%;" >Submitted by Name </th><th>{{storaged_data.submitted_by_name}}</th></tr>
+                                    <tr><th  style="width: 65%;" >Submitted by Emp Code </th><th>{{storaged_data.submitted_by_emp_code}}</th></tr>
+                                    <tr><th  style="width: 65%;" >Submitted by On </th><th>{{storaged_data.submitted_by_on}}</th></tr>
+                                </table>    
+
+                                       
+                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- <div class="col-6 pl-5 pr-5">
+                <div class="row border border-secondary ">
+                    <div class="col-12 ht">
+                        <div class="row justify-content-center" style="background-color:#006598;">
+                            <h2 class="main-content-title tx-24 mb-1 pt-1"style="color: white;">SIGNATURE</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="{{cus_signature}}" alt="" style="width: 50%;"
+                                    >
+                                <p class="main-content-title tx-20 mb-1 pt-1">Customer Signature</p>
+                            </div>
+                            <div class="col-6">
+                                <img src="{{tech_signature}}" alt="" style="width: 50%;"
+                                    >
+                                <p class="main-content-title tx-20 mb-1 pt-1">Johnson Representative Signature</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+</section>

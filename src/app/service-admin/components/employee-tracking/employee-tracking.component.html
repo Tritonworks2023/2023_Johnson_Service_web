@@ -1,0 +1,142 @@
+<section>
+  <div class="page-header">
+          <div>
+              <h2 class="main-content-title tx-24 mb-1">Employee Tracking</h2>
+              <!-- <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a routerLink="dashboard">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">App User Management</li>
+              </ol> -->
+          </div>
+       
+    
+      </div>
+     
+      <div class="row row-sm">
+
+        <div class="col-lg-12">
+      <div class="card custom-card">
+        <div class="card-body">
+            <div class="card-item">
+      
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="search-hero">
+                            <div class="input-group mb-3">
+                               <!-- <div class="input-group-prepend">
+                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                               </div> -->
+                               <span class="d-flex " style="align-items:center">Enter Employee ID</span>
+                               <input type="text" style="margin-left:5px"  pInputText name="field_length" [(ngModel)]="usermobileno" placeholder="Search">
+                             </div>
+                          </div>
+                    </div>
+                    <div class="col-md-2 text-right">
+                      <input type="date" [(ngModel)]="current_date" style="width: 100%; height: 35px;">
+                   </div>
+                   <div class="col-md-2 text-right">
+                    <button type="button" class="btn btn-secondary" (click)="employee_search()">Search</button>
+                 </div>
+                    <div class="col-md-12 text-right">
+                       <h2>TOTAL KM {{total_km}}</h2> 
+                    </div>
+                    
+                </div>
+
+
+
+
+
+
+
+<agm-map 
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false"
+  [zoomControl]="false"
+>
+<agm-direction [origin]="origin" [destination]="destination"  [waypoints]="waypoints" [renderOptions]='renderOptions' ></agm-direction>
+
+  <agm-marker 
+      *ngFor="let m of markers; let i = index"
+      (markerClick)="clickedMarker(m.label, i)"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [label]="m.label"
+      [markerDraggable]="m.draggable"
+      (dragEnd)="markerDragEnd(m, $event)">
+      
+      <agm-info-window>
+        <strong><span>Job No :</span>{{m.job_no}}</strong><br>
+        <strong><span>Loc :</span>{{m.location_text}}</strong><br>
+        <strong><span>Mob No :</span>{{m.user_mobile_no}}</strong><br>
+        <strong><span>KM :</span> {{km}}</strong>
+      </agm-info-window>
+    
+  </agm-marker>
+  
+
+
+
+</agm-map>
+<div *ngIf="employeetable==true" class="table-responsive mt-5">
+  <p-table [value]="rows " styleClass="ui-table-customers" #tt [paginator]="true" [rows]="5"
+  [rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['type']">
+  <ng-template pTemplate="header">
+  <tr class="thhead">
+  <th style="width: 80px;">S.No</th>
+  <th style="width: 100px;">Job No</th>
+  <th style="width: 154px;">Service Type</th>
+  <th style="width: 180px;">Complaint No</th>
+  <th style="width: 150px;">User Mobile No</th>
+  <th style="width: 250px;">Location Text</th>
+  <th style="width: 150px;">Latitude</th>
+  <th style="width: 150px;">Longitude</th>
+  <th style="width: 150px;">Date</th>
+  <th style="width: 200px;">Remarks</th>
+  <th style="width: 200px;">Action</th>
+
+  <!-- <th style="width: 100px;">ACTION</th> -->
+  
+  
+  
+  </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item  let-i="rowIndex">
+  <tr class="tdrow">
+  <td>{{i+1}}</td>
+  <td>{{item.job_no}}</td>
+  <td>{{item.km}}</td>
+  <td>{{item.complaint_no}}</td>
+  <td>{{item.user_mobile_no}}</td>
+  <td>{{item.location_text}}</td>
+  <td>
+  {{item.loc_lat}}
+  </td>
+  <td>{{item.loc_long}}</td>
+  <td>{{item.date}}</td>
+  <td>{{item.remarks}}</td>
+  <td><span  class="pl-2" (click)="employeepopup(item.user_mobile_no)"> <i style="color: #2196f3;"
+    class="fas fa-edit"
+    aria-hidden="true" 
+    pTooltip="Edit"
+    ></i></span>
+  <span *ngIf="item.loc_lat=='0.0' || item.loc_long=='0.0' " class="pl-2"> <i style="color: #2196f3;" (click)="locationmap(item)"
+    class="fas fa-sync-alt"
+    aria-hidden="true"
+    pTooltip="Refresh"
+    ></i></span></td>
+  
+  </tr>
+  </ng-template>
+  </p-table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
