@@ -31,7 +31,7 @@ export class EmployeeTrackingComponent implements OnInit {
  lat: number = 51.673858;
  lng: number = 7.815982;
  rows:any;
- usermobileno:any;
+ usermobileno: any = 'E13528';
  jobno:any;
  employeetable;
  lat1: number;
@@ -55,7 +55,8 @@ current_date = new Date();
   ngOnInit(){
    
 
-  
+
+   
  
 
 
@@ -80,106 +81,91 @@ employee_search()
 
 this._api.employee_tracking(a).subscribe(
   (response: any) => {
-    
-    this.rows = response.Data;
-
-
-    
-
-    this.rows.map((e:any)=>{
-      // marker array push
-      this.markers.push({
-      lat: e.loc_lat,
-      lng: e.loc_long,
-      job_no:e.job_no,
-      location_text:e.location_text,
-      user_mobile_no:e.user_mobile_no
-       })
-
-       //km compare push
-       this.comparekmvalue.push({
-        lat: e.loc_lat,
-        lng: e.loc_long,
-        job_no:e.job_no,
-        location_text:e.location_text,
-       })
-
+    this.rows = [];
+    var index_value = 0;
+    response.Data.forEach((element, idx) => {
+         if(+element.loc_lat !== 0){
+           element.lat_value = +element.loc_lat;
+           element.long_value = +element.loc_long;
+           element.index = index_value;
+           element.kmss = 0;
+           element.address = +element.location_text;
+           this.rows.push(element);
+           this.markers.push({
+            lat: element.loc_lat,
+            lng: element.loc_long,
+            label : ""+index_value,
+            job_no: element.job_no,
+            location_text: element.location_text,
+            user_mobile_no: element.user_mobile_no,
+            kms : 0,
+            index : index_value,
+             });
+             index_value = index_value + 1;
+            }
     });
 
     if(this.markers.length > 1){
       this.origin = { lat: Number(this.markers[0].lat) , lng: Number(this.markers[0].lng)};
-      this.destination = { lat: Number(this.markers[1].lat) , lng: Number(this.markers[1].lng)};
+      this.destination = { lat: Number(this.markers[0].lat) , lng: Number(this.markers[0].lng)};
+      console.log(this.origin);
+      console.log(this.destination);
      }
 
-
-
-    if(this.markers.length >= 2){
-      this.markers.map((aa:any,i)=>{
-        if(i>1){
-           this.waypoints.push({location: { lat: Number(aa.lat), lng: Number(aa.lng) }})  
-        }
-      })
-    }
-
    
-
-
-        this.comparekmvalue.push({
-          lat: 0,
-          lng: 0,
-          job_no:0,
-          location_text:"chennai",
-         })
-         this.comparekmvalue.shift();
-
-         
-
-         var index = 0;
-         this.recall(index);
-         
-        
-
+    console.log(this.markers); 
+    console.log(this.waypoints);
+    this.total_km = 0; 
+    var index = 0;
+    this.recall(index);
       }
-    
-    
       );
   }
 
     recall(index){
-    
-    const geocoder = new google.maps.Geocoder();
     const service = new google.maps.DistanceMatrixService();
-
-
     let i = index;
-    if(i < this.markers.length){
+    if(i < this.markers.length - 1){
     let aa = this.markers[i];
-    this.lat1= aa.lat ; this.lng1= aa.lng;this.lat2= this.comparekmvalue[i].lat; this.lng2= this.comparekmvalue[i].lng;
+    let bb = this.markers[i + 1];
+    this.lat1 = +aa.lat; 
+    this.lng1 = +aa.lng;
+    this.lat2 = +bb.lat; 
+    this.lng2 = +bb.lng;
+    console.log(this.lat1,this.lng1,this.lat2,this.lng2);
     // build request
-    const origin1 = { lat: Number(this.lat1), lng: Number(this.lng1) };
-    const origin2 = aa.location_text;
-    const destinationA =this.comparekmvalue[i].location_text;
-    const destinationB = { lat: Number(this.comparekmvalue[i].lat), lng: Number(this.comparekmvalue[i].lng) };
     const request = {
-      origins: [origin1, origin2],
-      destinations: [destinationA, destinationB],
+      origins: [{lat: this.lat1, lng: this.lng1}],
+      destinations: [{lat: this.lat2, lng: this.lng2}],
       travelMode: google.maps.TravelMode.DRIVING,
       unitSystem: google.maps.UnitSystem.METRIC,
       avoidHighways: false,
       avoidTolls: false,
     };
+    // console.log(request);
 
     service.getDistanceMatrix(request).then((response) => {
-      var newarr = response.rows[0].elements[0].distance.text.split(" ");
-      this.km = +newarr[0];
-      this.calckmValue.push(this.km);
+      console.log(response);
+      var newarr = response.rows[0].elements[0].distance.value;
+      this.km = +newarr;
+      console.log("Calculate KM",this.km);
+      if(this.km !== 0){
+        this.origin = { lat: Number(this.lat1) , lng: Number(this.lng1)};
+        this.destination = { lat: Number(this.lat2) , lng: Number(this.lng2)};
+        this.waypoints.push({location: { lat: Number(this.lat1), lng: Number(this.lng1)}});
+      }
       this.total_km = this.total_km + this.km;
+      this.markers[i + 1].kms = this.km / 1000;
+      this.rows[i + 1].kms =  this.km / 1000;
+      // this.calckmValue.push(this.km);
+      // this.total_km = this.total_km + this.km;
       index = index + 1;
       this.recall(index);
     });
      }
      else {
-    
+      console.log(this.waypoints);
+      this.total_km = this.total_km / 1000;
       this.total_km = Math.round(this.total_km);
      }
    
@@ -255,6 +241,16 @@ getDistanceFromLatLonInKm() {
 
 }
 
+
+
+
+
+
+
+
+
+
+
 }
 
 // just an interface for type safety.
@@ -264,6 +260,9 @@ interface marker {
   job_no?:string;
   location_text?:string;
   user_mobile_no:number;
+  index : number;
+  label : String;
+  kms : number;
   
   
 }

@@ -13,117 +13,15 @@ export class ApiService {
 
 
 
-  ////User type API//////
-  user_type_list() {
-    return this.http.get(this.apiUrl + 'usertype/admin/getlist');
-  }
-  user_type_insert(data) {
-    return this.http.post(this.apiUrl + 'usertype/create', data);
-  }
-  user_type_edit(data) {
-    return this.http.post(this.apiUrl + 'usertype/edit', data);
-  }
-  user_type_delete(data) {
-    return this.http.post(this.apiUrl + 'usertype/admin_delete', data);
-  }
-  user_type_filter_date(data) {
-    return this.http.post(this.apiUrl + 'usertype/filter_date', data);
-  }
-
-  //////////////
-
-
-  ////Service Management API//////
-  service_list() {
-    return this.http.get(this.apiUrl + 'service_management/getlist');
-  }
-  service_insert(data) {
-    return this.http.post(this.apiUrl + 'service_management/create', data);
-  }
-  service_edit(data) {
-    return this.http.post(this.apiUrl + 'service_management/edit', data);
-  }
-  service_delete(data) {
-    return this.http.post(this.apiUrl + 'service_management/admin_delete', data);
-  }
-  service_filter_date(data) {
-    return this.http.post(this.apiUrl + 'service_management/filter_date', data);
-  }
-
-  //////////////
-
-
-  ////Field Management API//////
-  Field_list() {
-    return this.http.get(this.apiUrl + 'field_management/getlist');
-  }
-  Field_insert(data) {
-    return this.http.post(this.apiUrl + 'field_management/create', data);
-  }
-  Field_edit(data) {
-    return this.http.post(this.apiUrl + 'field_management/edit', data);
-  }
-  Field_delete(data) {
-    return this.http.post(this.apiUrl + 'field_management/admin_delete', data);
-  }
-  Field_filter_date(data) {
-    return this.http.post(this.apiUrl + 'field_management/filter_date', data);
-  }
-  Field_list_by_group(data) {
-    return this.http.post(this.apiUrl + 'field_management/getlist_by_group_id',data);
-  }
-
-
-
-  Field_list_by_sub_group(data){
-    return this.http.post(this.apiUrl + 'field_management/getlist_by_sub_group_id',data);
-  }
-
-  //////////////
 
 
 
 
-    ////Active Details Management API//////
-    activedetail_list() {
-      return this.http.get(this.apiUrl + 'activedetail_management/getlist');
-    }
-    activedetail_insert(data) {
-      return this.http.post(this.apiUrl + 'activedetail_management/create', data);
-    }
-    activedetail_edit(data) {
-      return this.http.post(this.apiUrl + 'activedetail_management/edit', data);
-    }
-    activedetail_delete(data) {
-      return this.http.post(this.apiUrl + 'activedetail_management/admin_delete', data);
-    }
-    activedetail_filter_date(data) {
-      return this.http.post(this.apiUrl + 'activedetail_management/filter_date', data);
-    }
 
 
 
 
-    ////Job Management API//////
-    jobdetail_list() {
-      return this.http.get(this.apiUrl + 'job_no_managment/getlist');
-    }
-    jobdetail_insert(data) {
-      return this.http.post(this.apiUrl + 'job_no_managment/create', data);
-    }
-    jobdetail_edit(data) {
-      return this.http.post(this.apiUrl + 'job_no_managment/edit', data);
-    }
-    jobdetail_delete(data) {
-      return this.http.post(this.apiUrl + 'job_no_managment/admin_delete', data);
-    }
-    jobdetail_filter_date(data) {
-      return this.http.post(this.apiUrl + 'job_no_managment/filter_date', data);
-    }
 
-    jobdetail_fetch_by_id(data) {
-      return this.http.post(this.apiUrl + 'job_no_managment/fetch_by_id', data);
-    }
 
 
 
@@ -166,179 +64,13 @@ export class ApiService {
     
 
 
-
-    ////Group Management API//////
-     groupdetail_list() {
-      return this.http.get(this.apiUrl + 'group_detail_managment/getlist');
-    }
-    groupdetail_insert(data) {
-      return this.http.post(this.apiUrl + 'group_detail_managment/create', data);
-    }
-    groupdetail_edit(data) {
-      return this.http.post(this.apiUrl + 'group_detail_managment/edit', data);
-    }
-    groupdetail_delete(data) {
-      return this.http.post(this.apiUrl + 'group_detail_managment/admin_delete', data);
-    }
-    groupdetail_filter_date(data) {
-      return this.http.post(this.apiUrl + 'group_detail_managment/filter_date', data);
-    }
-
-    groupdetail_fetch_by_id(data) {
-      return this.http.post(this.apiUrl + 'group_detail_managment/fetch_by_id', data);
-    }
-    groupdetail_rearrange() {
-      return this.http.get(this.apiUrl + 'group_detail_managment/reload_data');
-    }
-
-    groupdetail_list_subgroup() {
-      return this.http.get(this.apiUrl + 'new_group_detail_managment/groupdetail_list_subgroup1');
+    breakdown_oracel_data_update(data){
+      return this.http.post(this.apiUrl +'breakdown_data_management/breakdown_oracel_data_update',data);
     }
 
 
-
-    fielddetail_rearrange(data) {
-      return this.http.post(this.apiUrl + 'field_management/reload_data',data);
-    }
-
-
-      ////Sub Group Management API//////
-       sub_groupdetail_list() {
-        return this.http.get(this.apiUrl + 'sub_group_detail_managment/getlist');
-      }
-      sub_groupdetail_insert(data) {
-        return this.http.post(this.apiUrl + 'sub_group_detail_managment/create', data);
-      }
-      sub_groupdetail_edit(data) {
-        return this.http.post(this.apiUrl + 'sub_group_detail_managment/edit', data);
-      }
-      sub_groupdetail_delete(data) {
-        return this.http.post(this.apiUrl + 'sub_group_detail_managment/admin_delete', data);
-      }
-      sub_groupdetail_filter_date(data) {
-        return this.http.post(this.apiUrl + 'sub_group_detail_managment/filter_date', data);
-      }
-
-      sub_groupdetail_fetch_by_id(data) {
-        return this.http.post(this.apiUrl + 'sub_group_detail_managment/fetch_by_id', data);
-      }
-
-
-    ////Data Entry Detail/////
-
-
-    data_entry_detail_list() {
-      return this.http.get(this.apiUrl + 'data_store_management/getlist');
-    }
-
-    fetch_entry_detail_list(data) {
-      return this.http.post(this.apiUrl + 'data_store_management/fetch_data', data);
-    }
-
-    entry_detail_delete(data) {
-      return this.http.post(this.apiUrl + 'data_store_management/admin_delete', data);
-    }
-
-    fetch_entry_detail_activity_list(data) {
-      return this.http.post(this.apiUrl + 'data_store_management/activity_list', data);
-    }
-
-
-
-    getlist_userdetail() {
-      return this.http.get(this.apiUrl + 'user_management/getlist');
-    }
-    userdetail_insert(data) {
-      return this.http.post(this.apiUrl + 'user_management/create', data);
-    }
-    userdetail_edit(data) {
-      return this.http.post(this.apiUrl + 'user_management/edit', data);
-    }
-    userdetail_delete(data) {
-      return this.http.post(this.apiUrl + 'user_management/admin_delete', data);
-    }
-    userdetail_filter_date(data) {
-      return this.http.post(this.apiUrl + 'user_management/filter_date', data);
-    }
-
-
- ////// Tab Details////
-    tab_getlist_userdetail() {
-      return this.http.get(this.apiUrl + 'tab_usermanager/getlist');
-    }
-    tab_userdetail_insert(data) {
-      return this.http.post(this.apiUrl + 'tab_usermanager/create', data);
-    }
-    tab_userdetail_edit(data) {
-      return this.http.post(this.apiUrl + 'tab_usermanager/edit', data);
-    }
-    tab_userdetail_delete(data) {
-      return this.http.post(this.apiUrl + 'tab_usermanager/admin_delete', data);
-    }
-    tab_userdetail_filter_date(data) {
-      return this.http.post(this.apiUrl + 'tab_usermanager/filter_date', data);
-    }
-
-
-
-        ////Attendance Details Management API//////
-        attendance_list() {
-          return this.http.get(this.apiUrl + 'attendance/getlist');
-        }
-        attendance_insert(data) {
-          return this.http.post(this.apiUrl + 'attendance/create', data);
-        }
-        attendance_edit(data) {
-          return this.http.post(this.apiUrl + 'attendance/edit', data);
-        }
-        attendance_delete(data) {
-          return this.http.post(this.apiUrl + 'attendance/admin_delete', data);
-        }
-        attendance_filter_date(data) {
-          return this.http.post(this.apiUrl + 'attendance/filter_date', data);
-        }
-
-
-
-
-  ////Job Management API//////
-    Joint_inspection_jobdetail_list() {
-      return this.http.get(this.apiUrl + 'joininspection/getlist');
-    }
-    Joint_inspection_jobdetail_insert(data) {
-      return this.http.post(this.apiUrl + 'joininspection/create', data);
-    }
-    Joint_inspection_jobdetail_edit(data) {
-      return this.http.post(this.apiUrl + 'joininspection/edit', data);
-    }
-    Joint_inspection_jobdetail_delete(data) {
-      return this.http.post(this.apiUrl + 'joininspection/admin_delete', data);
-    }
-    Joint_inspection_jobdetail_filter_date(data) {
-      return this.http.post(this.apiUrl + 'joininspection/filter_date', data);
-    }
-    Joint_inspection_jobdetail_fetch_by_id(data) {
-      return this.http.post(this.apiUrl + 'joininspection/fetch_by_id', data);
-    }
-
-    Joint_inspection_jobdetail_sub_group_list(data) {
-      return this.http.post(this.apiUrl + 'joininspection/getlist_subgroup_list',data);
-    }
-
-
-
-
-    ///////Oracle Data /////
-
-
-
-    ////New Group Management API//////
-    new_groupdetail_list() {
-      return this.http.get(this.apiUrl + 'new_group_detail_managment/getlist');
-    }
-
-    fetch_data_activity() {
-      return this.http.get(this.apiUrl + 'new_group_detail_managment/fetch_data_activity');
+    audit_oracle_data_update(data){
+      return this.http.post(this.apiUrl +'audit_data_management/audit_oracel_data_update',data);
     }
 
 
@@ -347,59 +79,32 @@ export class ApiService {
 
 
 
-    pull_and_upload_datas(data) {
-      return this.http.post(this.apiUrl + 'new_group_detail_managment/pull_and_upload_datas', data);
-    }
-
-
-
-    new_groupdetail_insert(data) {
-      return this.http.post(this.apiUrl + 'new_group_detail_managment/create', data);
-    }
-    new_groupdetail_edit(data) {
-      return this.http.post(this.apiUrl + 'new_group_detail_managment/edit', data);
-    }
-    new_groupdetail_delete(data) {
-      return this.http.post(this.apiUrl + 'new_group_detail_managment/admin_delete', data);
-    }
-    new_groupdetail_filter_date(data) {
-      return this.http.post(this.apiUrl + 'new_group_detail_managment/filter_date', data);
-    }
-
-    new_groupdetail_fetch_by_id(data) {
-      return this.http.post(this.apiUrl + 'new_group_detail_managment/fetch_by_id', data);
-    }
-    new_groupdetail_rearrange() {
-      return this.http.get(this.apiUrl + 'new_group_detail_managment/reload_data');
-    }
-
-    new_groupdetail_list_subgroup() {
-      return this.http.get(this.apiUrl + 'new_group_detail_managment/groupdetail_list_subgroup');
-    }
 
 
 
 
-      ////Form 3 //////
-      tab_chqcollection_list() {
-        return this.http.get(this.apiUrl + 'tab_form_three/getlist');
-      }
-      tab_chqcollection_insert(data) {
-        return this.http.post(this.apiUrl + 'tab_form_three/create', data);
-      }
-      tab_chqcollection_edit(data) {
-        return this.http.post(this.apiUrl + 'tab_form_three/edit', data);
-      }
-      tab_chqcollection_delete(data) {
-        return this.http.post(this.apiUrl + 'tab_form_three/admin_delete', data);
-      }
-      tab_chqcollection_filter_date(data) {
-        return this.http.post(this.apiUrl + 'tab_form_three/filter_date', data);
-      }
-      tab_chqcollection_fetch_by_id(data) {
-        return this.http.post(this.apiUrl + 'tab_form_three/fetch_by_id', data);
-      }
-      
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       ///sub admin login
 Sub_admin_login(data) {
   return this.http.post(this.apiUrl + 'admin_access/admin/login', data);
@@ -412,6 +117,10 @@ Sub_admin_login(data) {
       service_employee_list() {
         return this.http.get(this.apiUrl + 'service_userdetails/getlist');
       }
+
+      deactive_service_employee_list() {
+        return this.http.get(this.apiUrl + 'service_userdetails/getlist/deactive');
+      }
       
       subadmin_employee_list(data) {
         return this.http.post(this.apiUrl + 'service_userdetails/getlist_by_usertype',data);
@@ -422,11 +131,21 @@ Sub_admin_login(data) {
       employee_delete(data) {
         return this.http.post(this.apiUrl + 'service_userdetails/delete', data);
       }
-     Admin_delete(data) {
-        return this.http.post(this.apiUrl + 'admin_access/delete', data);
-      }
+    //  Admin_delete(data) {
+    //     return this.http.post(this.apiUrl + 'admin_access/delete', data);
+    //   }
+
       employee_edit(data) {
         return this.http.post(this.apiUrl + 'service_userdetails/edit', data);
+      }
+
+
+      clear_device_id() {
+        return this.http.get(this.apiUrl + 'service_userdetails/clear_device_id');
+      }
+
+      clear_device_id_by_number(data){
+        return this.http.post(this.apiUrl + 'service_userdetails/clear_device_id_user_mobile_no', data);
       }
 
 
@@ -561,6 +280,20 @@ lr_data_details(data){
 breakdown_data_details(data){
   return this.http.post(this.apiUrl + 'breakdown_data_management/fetch_job_id', data);
 }
+
+
+breakdown_data_details_fetch_job_id_and_oracel(data){
+  return this.http.post(this.apiUrl + 'breakdown_data_management/fetch_job_id_and_oracel', data);
+
+}
+
+
+
+audit_details_fetch_job_id_and_oracel(data){
+  return this.http.post(this.apiUrl + 'audit_data_management/fetch_job_id_and_oracel', data);
+}
+
+
 
 parts_rep_data_details(data){
   return this.http.post(this.apiUrl + 'part_replacement/fetch_job_id', data);
@@ -709,6 +442,10 @@ mr_detail_breakdown(data){
   return this.http.post(this.apiUrl +'breakdown_data_management/mr_details_oracel',data);
 }
 
+mr_detail_audit(data){
+  return this.http.post(this.apiUrl +'audit_data_management/mr_details_oracel',data);
+}
+
 
 /////Addition Form/////
 
@@ -729,6 +466,142 @@ get_additional_for_elevator() {
 get_additional_for_elevator_view(data) {
   return this.http.post(this.apiUrl + 'additional_forms/elevator_survey/getlist_id',data);
 }
+
+
+
+
+get_van_list() {
+  return this.http.get(this.apiUrl + 'van/admin_list');
+}
+
+
+van_details(data){
+  return this.http.post(this.apiUrl + 'van/van_details', data);
+}
+
+
+van_details_material_mongo(data){
+  return this.http.post(this.apiUrl + 'van/material_mongo', data);
+}
+
+
+job_count_details() {
+  return this.http.get(this.apiUrl + 'auto_pull/job_count_detail');
+}
+
+
+///////
+
+get_serivce_temp_count(){
+  return this.http.get(this.apiUrl + 'service_temp_data/get_serivce_temp_count');
+}
+
+
+get_error_log_count(){
+  return this.http.get(this.apiUrl + 'service_temp_data/get_error_log_count');
+}
+
+
+get_opers_temp_count(){
+  return this.http.get(this.apiUrl + 'service_temp_data/get_operation_temp_count');
+}
+
+
+get_serivce_submitted_value_count(){
+  return this.http.get(this.apiUrl + 'service_temp_data/get_serivce_submitted_value_count');
+}
+
+
+
+get_notification_count(){
+  return this.http.get(this.apiUrl + 'service_temp_data/get_notification_count');
+}
+
+
+get_pop_notification_count(){
+  return this.http.get(this.apiUrl + 'service_temp_data/get_pop_notification_count');
+}
+
+
+
+
+
+get_temp_submitted_data_count(){
+  return this.http.get(this.apiUrl + 'activity/get_temp_submitted_data_count');
+}
+
+
+get_temp_submitted_data_detail(){
+  return this.http.get(this.apiUrl + 'activity/get_temp_submitted_data_detail');
+}
+
+
+
+
+get_error_log_count_delete(){
+  return this.http.get(this.apiUrl + 'service_temp_data/get_error_log_count_delete');
+
+}
+
+get_operation_temp_delete(){
+  return this.http.get(this.apiUrl + 'service_temp_data/get_operation_temp_delete');
+
+}
+
+
+get_serivce_submitted_value_delete(){
+  return this.http.get(this.apiUrl + 'service_temp_data/get_serivce_submitted_value_delete');
+
+}
+
+get_serivce_temp_delete(){
+  return this.http.get(this.apiUrl + 'service_temp_data/get_serivce_temp_delete');
+}
+
+
+get_notification_delete(){
+  return this.http.get(this.apiUrl + 'service_temp_data/get_notification_delete');
+}
+
+
+get_pop_notification_delete(){
+  return this.http.get(this.apiUrl + 'service_temp_data/get_pop_notification_delete');
+}
+
+
+temp_submitte_delete(){
+  return this.http.get(this.apiUrl + 'activity/temp_submitte_delete');
+}
+
+
+
+
+
+
+//////////////SERVICE COUNT DETAILS//////////////////////
+
+
+view_service_count(){
+  return this.http.get(this.apiUrl + 'service_userdetails/view_service_count');
+}
+
+// get_temp_submitted_data_count(){
+//   return this.http.get(this.apiUrl + 'activity/get_temp_submitted_data_count');
+// }
+
+// get_temp_submitted_data_count(){
+//   return this.http.get(this.apiUrl + 'activity/get_temp_submitted_data_count');
+// }
+
+// get_temp_submitted_data_count(){
+//   return this.http.get(this.apiUrl + 'activity/get_temp_submitted_data_count');
+// }
+
+// get_temp_submitted_data_count(){
+//   return this.http.get(this.apiUrl + 'activity/get_temp_submitted_data_count');
+// }
+
+
 
 
 

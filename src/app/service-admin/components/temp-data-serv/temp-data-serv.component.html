@@ -1,0 +1,156 @@
+<section>
+    <div class="page-header">
+        <div>
+            <h2 class="main-content-title tx-24 mb-1">Temp Store Data Count</h2>
+            <!-- <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="dashboard">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">App User Management</li>
+                </ol> -->
+        </div>
+    </div>
+
+
+    <div class="loader" *ngIf="loader_visible"></div>
+    <div class="row row-sm" *ngIf="!loader_visible">
+        <div class="col-lg-12">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <div class="card-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="search-hero">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="fas fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control" type="text" name="search2" [(ngModel)]="searchQR"
+                                            autocomplete="off" placeholder="Search...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <button type="button" class="btn btn-secondary" (click)="refersh()"><i
+                                        class="fas fa-sync-alt"></i> Refresh</button>
+                            </div>
+                        </div>
+
+
+                        <div class="table-responsive">
+                            <p-table [value]="rows | filter:searchQR" styleClass="ui-table-customers" #tt
+                                [paginator]="true" [rows]="15" [rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]"
+                                [showCurrentPageReport]="true"
+                                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                                [globalFilterFields]="['type']">
+                                <ng-template pTemplate="header">
+                                    <tr class="thhead">
+                                        <!-- <th class="th-1">
+            S.No
+        </th> -->                       <th style=" width: 70px ">S.No</th>
+                                        <th style=" width: 150px ">ACTIVITY</th>
+                                        <th style=" width: 150px ">COUNT</th>
+                                        <th style=" width: 150px ">ACTION</th>
+                                        
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-item let-i="rowIndex">
+                                    <tr class="tdrow">
+                                        <td>{{i+1}}</td>
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.count}}</td>
+                                        <td class="act">
+                                            <button *ngIf="item.name == 'Service Module'" (click)="service_detele()">SERV TEMP CLEAR DATA </button>
+                                            <button *ngIf="item.name == 'Operation Module'" (click)="operation_temp_delet()">OPER TEMP CLEAR DATA </button>
+                                            <button *ngIf="item.name == 'Erro Log Count'" (click)="err_log_detele()">ERROR LOG CLEAR DATA </button>
+                                            <button *ngIf="item.name == 'Temp Submitted data'" (click)="temp_submitte_delete()">TEMP SUBMITTED CLEAR DATA </button>
+                                            <button *ngIf="item.name == 'Serive Submit Value'" (click)="get_serivce_submitted_value_delete()">Serive Submit Value CLEAR DATA </button>
+                                            <button *ngIf="item.name == 'Notification Count'" (click)="get_notification_delete()">NOTIFICATION CLEAR DATA </button>
+                                            <button *ngIf="item.name == 'Pop Notification Count'" (click)="get_pop_notification_delete()">POP NOTIFICATION CLEAR DATA </button>
+
+                                              
+                                        </td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+        <h2>Temp Data Submitted Count Form Wise</h2>
+        </div>
+        <div class="col-lg-12">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <div class="card-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="search-hero">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="fas fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control" type="text" name="search2" [(ngModel)]="searchQR"
+                                            autocomplete="off" placeholder="Search...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <button type="button" class="btn btn-secondary" (click)="refersh()"><i
+                                        class="fas fa-sync-alt"></i> Refresh</button>
+                            </div>
+                        </div>
+
+
+                        <div class="table-responsive">
+                            <table>
+                                <tr class="thhead">
+                                        <th style=" width: 70px ">S.No</th>
+                                        <th style=" width: 150px ">ACTIVITY</th>
+                                        <th style=" width: 150px ">COUNT</th>                            
+                                    </tr>
+                                <tr >
+                                    <td>1</td>
+                                    <td>Breakdown</td>
+                                    <td>{{rows_tmp.submitted_data_br}}</td>
+                                </tr>
+                                <tr >
+                                    <td>2</td>
+                                    <td>Preventive</td>
+                                    <td>{{rows_tmp.submitted_data_pm}}</td>             
+                                </tr>
+                                <tr >
+                                    <td>3</td>
+                                    <td>BD MR</td>
+                                    <td>{{rows_tmp.submitted_data_brmr}}</td>
+                                </tr>
+                                <tr >
+                                    <td>4</td>
+                                    <td>PR MR</td>
+                                    <td>{{rows_tmp.submitted_data_pmmr}}</td>
+                                </tr>
+                                <tr >
+                                    <td>5</td>
+                                    <td>AUDIT</td>
+                                    <td>{{rows_tmp.submitted_data_audit}}</td>
+                                </tr>
+                                <tr >
+                                    <td>6</td>
+                                    <td>TOTAL</td>
+                                    <td>{{rows_tmp.submitted_data_all}}</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>SUBMITTED</td>
+                                    <td>{{rows_tmp.submitted_pm}}</td>
+                                </tr> 
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

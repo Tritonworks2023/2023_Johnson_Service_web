@@ -164,6 +164,11 @@ export class SeviceAddadminComponent implements OnInit {
         this.employeeChecked = false;
       }
 
+
+      this.empList =  this.empList.sort((a, b) => a.employeeChecked > b.employeeChecked ? -1 : 1);
+
+      
+
       this.employee_detail = this.getEmpDetailss.employee_detail
 
     });

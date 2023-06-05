@@ -56,6 +56,8 @@ address4 ='';
   mat_quan = '';
   mat_seq_no = '';
 
+ 
+
 
 
 
@@ -95,6 +97,7 @@ address4 ='';
     // form format
     this._api.parts_rep_data_details(datas).subscribe((response: any) => {
       this.storaged_data = response.Data;
+      console.log("*******",this.storaged_data);
       this.customer_name =response.Data.SMU_ACK_ENGRNAME;
       this.tech_name = response.Data.SMU_ACK_ENGRNAME;
       this.job_no = response.Data.SMU_ACK_JOBNO;
@@ -131,7 +134,11 @@ address4 ='';
       
 
 this.mat_data=response.Data;
-  
+
+
+console.log(this.mat_data);
+    
+    
 
 
      

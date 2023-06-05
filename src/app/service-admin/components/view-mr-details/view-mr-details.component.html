@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6 p-4">
+            <div class="col-6 p-4" *ngIf="types !== 'audit'">
                 <h2 class="main-content-title tx-24 mb-1 border border-primary center bg1">MEC RISE MR
                 </h2>
             </div>
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-6 pl-5 pr-5">
+            <div class="col-6 pl-5 pr-5" *ngIf="types !== 'audit'">
                 <div class="row  border border-secondary ">
                     <div class="col-12 ht">
                         <h2 class="main-content-title tx-24 mb-1 pt-1">Material Details</h2>

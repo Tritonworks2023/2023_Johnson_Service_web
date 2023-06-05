@@ -27,7 +27,7 @@ export class AttendanceComponent implements OnInit {
   value:any;
   newexcel: any;
   // rows=[{"LoginId":"1","AgentId":"2001","agentname":"Arun","logintime":"02-02-2022","logouttime":"23-26-2022","worktime":"2hrs","jobcount":"3","status":"active","reason":"Leave"}]
-  header=["Agent Name","Login Time","Logout Time","Phone Number","Working Time","Status","Logout Reason"]
+  header=["Agent Name","Login Time","Login Add", "Logout Time", "Logout Add", "Phone Number", "Working Time","Status","Logout Reason"]
   exceldata: any;
   constructor(private router:Router,private _api: ApiService, public dialog: MatDialog,private excelservice: ExcelService) { }
 
@@ -50,7 +50,7 @@ this.data={
     }
     this._api.attendence(this.data).subscribe((data:any)=>{
   this.rows=data['Data']
-  this.exceldata=this.rows;
+    this.exceldata = this.rows;
     });
   }
   }
@@ -81,27 +81,7 @@ this.data={
   }
  
   exceldownload(){
-
-        this.value=this.exceldata;
-         this.newexcel = this.value.map(d =>{
-          this.final_data.push({
-            EMPLOYEE_ID
- :d.EMPLOYEE_ID
- ,
-            EMPLOYEE_NAME :d.AGENTNAME
-            ,
-            LOCATION :d.LOCATION
-            ,
-            START_TIME : d.INTIME 
-            ,
-            END_TIME :d.OUTTIME,
-            WORKING_HOURS :d.TIME_DIFFERENCE,
-            LOGOUT_REASON :d.LOGOUTREASON,
-         
-         })   
-         } );
-      
-        this.excelservice.exportAsExcelFile(this.final_data, 'Emp_List');
+        this.excelservice.exportAsExcelFile(this.rows, 'Attendance Excel');
       }
   submit() {
     this.E_Date.setDate( this.E_Date.getDate() + 1)
@@ -110,7 +90,7 @@ this.data={
       "to_date": new DatePipe('en-US').transform(this.E_Date ,'dd/MM/yyyy')
     }
     this._api.attendence(this.data).subscribe((data:any)=>{
-  this.rows=data['Data']
+     this.rows=data['Data'];
     });
   }
 }

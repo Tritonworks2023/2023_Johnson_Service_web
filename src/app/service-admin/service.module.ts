@@ -122,6 +122,12 @@ import { AddiElevatorListComponent } from './components/addi-elevator-list/addi-
 import { AgmDirectionModule } from 'agm-direction';
 import { ReportAuditComponent } from './report-audit/report-audit.component';
 import { PreviewAttendanceComponent } from './components/preview-attendance/preview-attendance.component';
+import { ServiceagentdeactiveComponent } from './service-page/service-agent/serviceagentdeactive/serviceagentdeactive.component';
+import { VanPdflistComponent } from './components/van-pdflist/van-pdflist.component';
+import { VanPdfviewComponent } from './components/van-pdfview/van-pdfview.component';
+import { JobsCountsComponent } from './components/jobs-counts/jobs-counts.component';
+import { TempDataServComponent } from './components/temp-data-serv/temp-data-serv.component';
+import { ServiceFormCountComponent } from './components/service-form-count/service-form-count.component';
 
 
 
@@ -197,7 +203,16 @@ import { PreviewAttendanceComponent } from './components/preview-attendance/prev
     AddiEscalatorViewComponent, 
     AddiElevatorViewComponent, 
     AddiElevatorListComponent,
-    PreviewAttendanceComponent
+    PreviewAttendanceComponent,
+    ServiceagentdeactiveComponent,
+    VanPdflistComponent,
+    VanPdfviewComponent,
+    JobsCountsComponent,
+    TempDataServComponent,
+    ServiceFormCountComponent
+ 
+
+
   ],
   imports: [
     RouterModule,

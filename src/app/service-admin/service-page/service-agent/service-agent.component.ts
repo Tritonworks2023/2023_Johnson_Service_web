@@ -32,14 +32,16 @@ export class ServiceAgentComponent implements OnInit {
   Admin_check:any
   newexcel: any;
   header = ["S no", "Emp Name", "Emp Code", "Emp Phone", "Location Name", "Emp type",
-  "Device Number", "Status", "Login Status", "Last Login Time","Last LogoutTime","Action"];
+  "Device Number", "Status", "Login Status", "Last Login Time","Last LogoutTime","Login Add","Logout Add","Action"];
   // rows=[{"agent_name":"arun","agent_phone":"8794561230","Email_id":"Arun@gmail.com","org_name":"Jhonshon","location_name":"chennai","mobile_model":"Nokia","mobile_make":"HMD","imei":"321546687"}]
   constructor(private router:Router, private toastr:ToastrManager,private _api: ApiService,private excelservice: ExcelService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.Admin_check = JSON.parse(sessionStorage.getItem('Sub_Admin_login') );
     this.access_tocken = sessionStorage.getItem('access_tocken') ;
-    
+   
+
+
     if( this.access_tocken ==null){
       
        this.router.navigateByUrl('/service-login');
@@ -221,5 +223,32 @@ detail:any;
     });
     dialogRef.afterClosed().subscribe(password => {
     });
+  }
+
+  clear_device_id(){
+
+
+   
+    this._api.clear_device_id().subscribe(
+    (response: any) => {
+      this.showSuccess("Update Successfully")
+      this.ngOnInit();
+    }
+  );
+
+
+  }
+
+
+  clear_device_id_by_number(data) {
+    let a = {
+      'user_mobile_no' : data
+     };
+    this._api.clear_device_id_by_number(a).subscribe(
+    (response: any) => {
+      this.showSuccess("Update Successfully")
+      this.ngOnInit();
+    }
+  );
   }
 }

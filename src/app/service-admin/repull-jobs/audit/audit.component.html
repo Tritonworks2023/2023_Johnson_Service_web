@@ -50,23 +50,22 @@
 
 
             <div class="table-responsive">
-                <p-table [value]="rows | filter:searchQR" styleClass="ui-table-customers" #tt [paginator]="true" [rows]="5"
+                <p-table [value]="rows | filter:searchQR" styleClass="ui-table-customers" #tt [paginator]="true" [rows]="500"
 [rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true"
 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['type']">
 <ng-template pTemplate="header">
     <tr class="thhead">
         <th style="width: 80px;">S.No</th>
+           <th style="width: 150px;">DownFlag</th>
             <th style="width: 150px;">Job No</th>
             <th style="width: 250px;">Customer Name</th>
             <th style="width: 150px;">MECHANIC</th>
+            <th style="width: 150px;">COM DATE</th>
             <th style="width: 150px;">Job Status</th>
             <th style="width: 150px;">Branch Code</th>
-            <th style="width: 150px;">BRKDOWNTYPE</th>
             <th style="width: 150px;">Complaint Number</th>
-            <th style="width: 250px;">Address1</th>
-            <th style="width: 250px;">Address2</th>
-            <th style="width: 150px;">Address3</th>
-                     
+            <th style="width: 250px;">SEQ NO</th>
+  
            
         
     </tr>
@@ -74,16 +73,15 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
 <ng-template pTemplate="body" let-item  let-i="rowIndex">
   <tr class="tdrow">
     <td>{{i+1}}</td>
-        <td>{{item.SMU_SCH_JOBNO}}</td>
-      <td>{{item.SMU_SCH_CUSNAME}}</td>
-      <td>{{item.SMU_SCH_MECHANIC}}</td>
-      <td>{{item.JOB_STATUS}}</td>
-      <td>{{item.SMU_SCH_BRCODE}}</td>
-      <td>{{item.SMU_SCH_BRKDOWNTYPE}}</td>
-      <td>{{item.SMU_SCH_COMPNO}}</td>
-      <td>{{item.SMU_SCH_CUSADD1}}</td>
-      <td>{{item.SMU_SCH_CUSADD2}}</td>
-      <td>{{item.SMU_SCH_CUSADD3}}</td>
+     <td><button (click)="make_no(item)">Update</button> </td> 
+     <td>{{item.OM_OSA_JOBNO}}</td>
+      <td>{{item.OM_OSA_CUSNAME}}</td>
+      <td>{{item.OM_OSA_MOBILE}}</td>
+      <td>{{item.OM_OSA_STATUS}}</td>
+      <td>{{item.OM_OSA_AUDDATE}}</td>
+      <td>{{item.OM_OSA_BRCODE}}</td>
+      <td>{{item.OM_OSA_COMPNO}}</td>
+      <td>{{item.OM_OSA_SEQNO}}</td>
 
       <!-- <td>{{item.SMU_SCH_DEPUTEDDT  | date: 'dd/MM/yyyy'}}</td> -->
     </tr>

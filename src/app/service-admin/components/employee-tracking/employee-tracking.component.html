@@ -42,12 +42,6 @@
                     
                 </div>
 
-
-
-
-
-
-
 <agm-map 
   [latitude]="lat"
   [longitude]="lng"
@@ -65,14 +59,13 @@
       [label]="m.label"
       [markerDraggable]="m.draggable"
       (dragEnd)="markerDragEnd(m, $event)">
-      
       <agm-info-window>
         <strong><span>Job No :</span>{{m.job_no}}</strong><br>
         <strong><span>Loc :</span>{{m.location_text}}</strong><br>
         <strong><span>Mob No :</span>{{m.user_mobile_no}}</strong><br>
-        <strong><span>KM :</span> {{km}}</strong>
+        <strong *ngIf="m.kms < 0" ><span>KM :</span> {{m.kms}} M</strong>
+        <strong *ngIf="m.kms > 0"><span>KM :</span> {{m.kms}} KM</strong>
       </agm-info-window>
-    
   </agm-marker>
   
 
@@ -91,8 +84,8 @@
   <th style="width: 180px;">Complaint No</th>
   <th style="width: 150px;">User Mobile No</th>
   <th style="width: 250px;">Location Text</th>
-  <th style="width: 150px;">Latitude</th>
-  <th style="width: 150px;">Longitude</th>
+  <th style="width: 150px;">Lat/Long</th>
+  <th style="width: 150px;">KMS</th>
   <th style="width: 150px;">Date</th>
   <th style="width: 200px;">Remarks</th>
   <th style="width: 200px;">Action</th>
@@ -112,9 +105,9 @@
   <td>{{item.user_mobile_no}}</td>
   <td>{{item.location_text}}</td>
   <td>
-  {{item.loc_lat}}
+  {{item.loc_lat}},{{item.loc_long}}
   </td>
-  <td>{{item.loc_long}}</td>
+  <td>{{item.kms}}</td>
   <td>{{item.date}}</td>
   <td>{{item.remarks}}</td>
   <td><span  class="pl-2" (click)="employeepopup(item.user_mobile_no)"> <i style="color: #2196f3;"

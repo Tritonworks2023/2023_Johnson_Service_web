@@ -66,86 +66,45 @@ export class AddAdminUserComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this._api.getBranchList().subscribe((response: any) => {
-      this.branchList=response['Data'];
-    })
-   this._api.Admin_list().subscribe((data: any) => {
-     
-      this.empList = data['Data'];
-      this.empList = this.empList.filter((ele) => ele.user_name !== 'Divagar');
-      this.empList = this.empList.filter((ele) => ele.emp_type == 'Mechanic');
-      this.filterEmpValue = this.empList;
+      this.branchList = response['Data'];
+      console.log(this.branchList);
     });
 
-
-
+    
     this.editEmp = JSON.parse(sessionStorage.getItem('employeeDetail') || '{}');
-  //  await this.getEmp();
-  //  await this.getService();
+
 
     await this._api.getadminDetails({ mobile_no: this.editEmp.mobile_no
     }).subscribe(
       (response: any) => {
-       
+         
+          console.log(response);
 
         if (response.Message == "No Details Found") {
           this.editTrue = false;
         } else {
           this.editTrue = true;
-
-          if (response && response.Data.access_location.length == 0) {
-            this.setAccess[1].check = false
-            this.Report = false;
-          } else {
-            this.setAccess[1].check = true;
-            this.Report = true;
-          }
-          if (response && response.Data.access_location.length == 0) {
-            this.setAccess[0].check = false;
-            this.Service = false;
-          } else {
-            this.setAccess[0].check = true;
-            this.Service = true;
-          }
-
-this.branchList && this.branchList.forEach(ele => {
-            response.Data.access_location && response.Data.access_location.forEach(ele2 => {
-              if (ele._id == ele2._id) {
+          
+          this.branchList.forEach(ele => {
+           response.Data.access_location.forEach(ele2 => {
+              if (""+ele._id == ""+ele2._id) {                
                 ele.check = true;
-                ele2.check = true;
               }
             });
           });
 
-          // this.serviceList && this.serviceList.forEach(ele => {
-          //   response.Data.access_live && response.Data.access_live.forEach(ele2 => {
-          //     if (ele._id == ele2._id) {
-          //       ele.check = true;
-          //       ele2.check = true;
-          //     }
-          //   });
-          // });
 
-          if((this.empList && this.empList.length) == (response.Data.access_location
-            && response.Data.access_location
-            .length)){
-            this.employeeChecked = true;
-          }else{
-            this.employeeChecked = false;
-          }
+          console.log(this.branchList);
 
-
-          if((this.serviceList && this.serviceList.length) == (response.Data.access_live && response.Data.access_live.length)){
-            this.serviceChecked = true;
-          }else{
-            this.serviceChecked = false;
-          }
+         
           this.adminForm.patchValue({
             _id: response.Data._id
             ,
           })
-
-          this.access_location = response.Data.access_location,
-          this.service_detail = response.Data.access_live
+           
+          
+          this.access_location = response.Data.access_location
+          // this.service_detail = response.Data.access_live
         }
       }
     );
@@ -279,17 +238,22 @@ this.branchList && this.branchList.forEach(ele => {
 
   save() {
   
+    
+
     var enteredData = this.adminForm.value;
     enteredData.status = enteredData.status.name
     enteredData.access_live = this.service_detail,
       enteredData.access_location = this.access_location
+
+      console.log(enteredData);
+
     if (this.editTrue) {
       this._api.update_admin(enteredData).subscribe((data: any) => {
         if (data.Message != "Functiondetails Updated") {
           this.toastr.successToastr(data.Message);
         } else {
           this.toastr.successToastr("Updated Successfully");
-          this.router.navigate(['/service-admin/AdminAccess'])
+          // this.router.navigate(['/service-admin/AdminAccess'])
         }
         // this.ngOnInit();
       });
@@ -299,7 +263,7 @@ this.branchList && this.branchList.forEach(ele => {
           this.toastr.successToastr(data.Message);
         } else {
           this.toastr.successToastr("Created Successfully");
-          this.router.navigate(['/service-admin/AdminAccess'])
+          // this.router.navigate(['/service-admin/AdminAccess'])
         }
         // this.ngOnInit();
       });

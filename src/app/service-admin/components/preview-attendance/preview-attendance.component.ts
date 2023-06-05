@@ -268,6 +268,11 @@ export class PreviewAttendanceComponent implements OnInit {
     this.Admin_check = JSON.parse(sessionStorage.getItem('Sub_Admin_login') );
     var access_loc = JSON.parse(sessionStorage.getItem('access_loc') );
 
+
+    console.log("Admin_check",this.Admin_check);
+    console.log("access_loc",access_loc);
+
+    
     
     if(this.Admin_check == null) {
      this._api.getBranchList().subscribe((response: any) => {
@@ -291,7 +296,11 @@ export class PreviewAttendanceComponent implements OnInit {
       element.count_value_present = 0;
       element.count_value_logout = 0;
       element.count_value_notlogin = 0;
+      element.check_status = false;
+      element.data = [];
     });
+    this.branchList = this.branchList.sort((a, b) => a.branch_code > b.branch_code ? 1 : -1);
+    this.selected_location = this.branchList[0].branch_code;
   }
   }
   }

@@ -100,7 +100,7 @@ export class ServiceLoginComponent implements OnInit {
   logintest1() {
     this.validator();
     if (this.validation) {
-      if ((this.email == 'EMP123') && (this.password == '123456')) {
+      if ((this.email == 'jlsmartservice') && (this.password == 'serviceadmin')) {
         sessionStorage.setItem("access_tocken",'true');
         sessionStorage.setItem("Sub_Admin_login",null);
         this.router.navigateByUrl('/service-admin/service-dashboard');

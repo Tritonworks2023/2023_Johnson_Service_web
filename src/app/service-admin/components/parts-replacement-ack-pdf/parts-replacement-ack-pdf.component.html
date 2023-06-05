@@ -356,8 +356,7 @@
 
                 <div class="col-12 pl-5 font-weight-normal ">
                     <h2>Please note that we have supplied and replaced the following materials :<span class="pl-1">{{comp_number}}</span></h2>
-                    <p pt-2 style="color:#213e99"> SCHMERSAL MAKE FSR & MAIN LIMIT SWITCH ASSY NC TYPE
-                        ZV7H236-11Z-1058/2138
+                    <p pt-2 style="color:#213e99">  <ng-container *ngFor="let item of mat_data"> {{item.part_name}},  </ng-container>     
                     </p>
 
                 </div>

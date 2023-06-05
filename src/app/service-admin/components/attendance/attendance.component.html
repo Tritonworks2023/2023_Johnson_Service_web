@@ -43,7 +43,7 @@ bottom: 21px;">
   
 </div>
 <div class="table-responsive">
-    <p-table [value]="rows| filter:searchQR "styleClass="ui-table-customers" #tt [paginator]="true" [rows]="10"
+    <p-table [value]="rows| filter:searchQR "styleClass="ui-table-customers" #tt [paginator]="true" [rows]="20"
 [rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true"
 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['type']">
 <ng-template pTemplate="header">
@@ -51,7 +51,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
 <!-- <th class="th-1">
 S.No
 </th> -->
-<th style=" width: 70px ">S.NO</th>
+<th style=" width: 50px ">S.NO</th>
 
 <th style=" width: 100px ">Emp Code</th>
 
@@ -59,8 +59,10 @@ S.No
 
 <th style=" width: 100px ">Location</th>
 <th style=" width: 100px ">Start Time</th>
+<th style=" width: 300px ">Login Add</th>
 
 <th style=" width: 100px ">End time</th>
+<th style=" width: 300px ">LogOut Add</th>
 <th style=" width: 170px ">Working Hours</th>
 <th style=" width: 100px ">Logout Reason</th>
 
@@ -84,10 +86,12 @@ S.No
 }}</td>
 <td>{{item.INTIME | date:"hh:mm"
 }}</td>
+<td>{{item.LOGIN_LOCATION}}</td>
 <!-- <td>{{item.user_mob_os}}</td> -->
 <!-- <td>{{item.user_password}}</td> -->
 <!-- <td>{{item.user_mob_make}}</td> -->
 <td>{{item.OUTTIME | date:"hh:mm"}}</td>
+<td>{{item.LOGOUT_LOCATION}}</td>
 
 <td>{{item.TIME_DIFFERENCE
 }}</td>

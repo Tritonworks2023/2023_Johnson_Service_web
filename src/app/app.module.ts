@@ -4,8 +4,7 @@ import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/cor
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { AdminModule } from './admin/admin.module';
-import { AdminComponent } from './admin/admin.component';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ng6-toastr-notifications';
@@ -14,7 +13,7 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+
 import { MatButtonModule } from '@angular/material/button';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { TableModule } from 'primeng/table';
@@ -29,7 +28,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
-import { HomeComponent } from './home/home.component';
+
 import { ServiceLoginComponent } from './service-login/service-login.component';
 import { ServiceAdminComponent } from './service-admin/service-admin.component';
 import { ServiceNavBarComponent } from './service-admin/components/service-nav-bar/service-nav-bar.component';
@@ -56,16 +55,11 @@ import { AgmDirectionModule } from 'agm-direction';
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent,
-    LoginComponent,
-    HomeComponent,
     ServiceLoginComponent,
     ServiceAdminComponent,
     ServiceLocationComponent,
     SubAdminLoginComponent,
     ExcelServiceComponent,
-    
-
 
 
   ],
@@ -78,7 +72,6 @@ import { AgmDirectionModule } from 'agm-direction';
     ToastrModule.forRoot(),
     AppRoutingModule,
     DragDropModule,
-    AdminModule,
     ServiceModule,
     TabViewModule,
     FormsModule,

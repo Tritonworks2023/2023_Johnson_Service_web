@@ -50,12 +50,14 @@
 
 
             <div class="table-responsive">
-                <p-table [value]="rows | filter:searchQR" styleClass="ui-table-customers" #tt [paginator]="true" [rows]="5"
+                <p-table [value]="rows | filter:searchQR" styleClass="ui-table-customers" #tt [paginator]="true" [rows]="500"
 [rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true"
 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['type']">
 <ng-template pTemplate="header">
     <tr class="thhead">
             <th style="width: 80px;">S.No</th>
+            <th style="width: 150px;">Action</th>
+            <th style="width: 150px;">SMU SCH DWNFLAG</th>
             <th style="width: 150px;">SMU SCH COMPNO</th>
             <th style="width: 250px;">SMU SCH COMPDT</th>
             <th style="width: 150px;">SMU SCH JOBNO</th>
@@ -72,7 +74,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
             <th style="width: 150px;">SMU SCH EMPCODE</th>
             <th style="width: 150px;">SMU SCH SERTYPE</th>
             <th style="width: 150px;">SMU SCH CONTNO</th>
-            <th style="width: 150px;">SMU SCH DWNFLAG</th>
+  
             <th style="width: 150px;">SMU SCH CUSNAME</th>
             <th style="width: 150px;">SMU SCH CUSADD1</th>
             <th style="width: 150px;">SMU SCH CUSADD2</th>
@@ -88,12 +90,13 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
             <th style="width: 150px;">SMU SCH MODDT</th>
             <th style="width: 150px;">SMU SCH ERRDESC</th>
             <th style="width: 150px;">SMU SCH DOORTYPE</th>
-            <th style="width: 100px;">ACTION</th>
     </tr>
 </ng-template>
 <ng-template pTemplate="body" let-item  let-i="rowIndex">
   <tr class="tdrow">
     <td>{{i+1}}</td>
+        <td>  <button (click)="make_no(item)">Update</button> </td>
+        <td>  {{ item.SMU_SCH_DWNFLAG}} </td>
         <td>  {{ item.SMU_SCH_COMPNO}} </td>
         <td>  {{ item.SMU_SCH_COMPDT}} </td>
         <td>  {{ item.SMU_SCH_JOBNO}} </td>
@@ -110,7 +113,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
         <td>  {{ item.SMU_SCH_EMPCODE}} </td>
         <td>  {{ item.SMU_SCH_SERTYPE}} </td>
         <td>  {{ item.SMU_SCH_CONTNO}} </td>
-        <td>  {{ item.SMU_SCH_DWNFLAG}} </td>
+
         <td>  {{ item.SMU_SCH_CUSNAME}} </td>
         <td>  {{ item.SMU_SCH_CUSADD1}} </td>
         <td>  {{ item.SMU_SCH_CUSADD2}} </td>
@@ -127,10 +130,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
         <td>  {{ item.SMU_SCH_ERRDESC}} </td>
         <td>  {{ item.SMU_SCH_DOORTYPE}} </td>
 
-        <td>    
-            <img src="https://www.nicepng.com/png/detail/20-207227_up-arrow-white-up-arrow-png.png" style="width:25%">
-            &nbsp;&nbsp; <img src="https://png.pngitem.com/pimgs/s/108-1080358_skinny-down-arrow-encode-clipart-to-base-png.png" style="width:35%">
-        </td>
+       
 
     </tr>
 </ng-template>

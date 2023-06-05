@@ -12,27 +12,8 @@
                     <h5 class="lead">Dashboard</h5>
                 </div>
             </mat-list-item>
-            <mat-list-item style="padding-left: 5px;" routerLink="AdminAccess" routerLinkActive="active" *ngIf="Admin_check !== true">
-                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                        aria-hidden="true"
-                        ></i>
-                </mat-icon>
-                <div fxFlex="10"></div>
-                <div class="sidenav-item">
-                    <h5 class="lead">Admin Access</h5>
-                </div>
-             </mat-list-item>
-  
-            <mat-list-item style="padding-left: 5px;" routerLink="service_notification" routerLinkActive="active"*ngIf="Admin_check !== true">
-                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                        aria-hidden="true"
-                        ></i>
-                </mat-icon>
-                <div fxFlex="10"></div>
-                <div class="sidenav-item">
-                    <h5 class="lead">Service Notification</h5>
-                </div>
-            </mat-list-item>
+
+
             <mat-list-item style="padding-left: 5px;" routerLink="Attendance-report" routerLinkActive="active" *ngIf="Admin_check !== true" >
                 <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
                         aria-hidden="true"
@@ -43,20 +24,486 @@
                     <h5 class="lead">Attendance</h5>
                 </div>
              </mat-list-item>
+
+
+             <mat-list-item style="padding-left: 5px;" routerLink="service-employee" routerLinkActive="active"*ngIf="Admin_check !== true">
+                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                        aria-hidden="true"
+                        ></i>
+                </mat-icon>
+                <div fxFlex="10"></div>
+                <div class="sidenav-item">
+                    <h5 class="lead">Active Employee</h5>
+                </div>
+            </mat-list-item>
+
+
+            <mat-list-item style="padding-left: 5px;" routerLink="service-employee-deactive" routerLinkActive="active"*ngIf="Admin_check !== true">
+                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                        aria-hidden="true"
+                        ></i>
+                </mat-icon>
+                <div fxFlex="10"></div>
+                <div class="sidenav-item">
+                    <h5 class="lead">InActive Employee</h5>
+                </div>
+            </mat-list-item>
+
+
+            <mat-list-item routerLinkActive="active" (click)="expand25 = !expand25">
+                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                    aria-hidden="true"
+                    ></i>
+                        </mat-icon>
+                        <div fxFlex="10"></div>
+                        <div class="sidenav-item">
+                            <h5 class="lead">Reports</h5>
+                        </div>
+                        <div class="sb-sidenav-collapse-arrow">
+                            <i *ngIf="!expand25" class="fas fa-chevron-down" aria-hidden="true"></i>
+                            <i *ngIf="expand25" class="fas fa-chevron-up" aria-hidden="true"></i>
+                        </div>
+                </mat-list-item>
+                     <mat-nav-list style=" padding-left: 5px; " *ngIf="expand25">
+                        <div class="sub-menu">
+                
+                            <!-- service-report -->
+                            <!-- ReportBreakdownComponent -->
+                            <mat-list-item style="padding-left: 5px;"  routerLink="ReportBreakdownComponent" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Breakdown Service</h5>
+                                </div>
+                            </mat-list-item>
+                            <mat-list-item style="padding-left: 5px;"  routerLink="ReporePreventiveMaintenanceComponent" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Preventive Maintenance</h5>
+                                </div>
+                            </mat-list-item>
+                
+                            <mat-list-item style="padding-left: 5px;" routerLink="ReportLrComponent" routerLinkActive="" >
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">
+                                        LR SERVICE</h5>
+                                </div>
+                            </mat-list-item>
+                            <mat-list-item style="padding-left: 5px;" routerLink="ReportPartsRepComponent" routerLinkActive="">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Parts Replacement ACK </h5>
+                                </div>
+                            </mat-list-item>
+            
+                            <mat-list-item style="padding-left: 5px;"  routerLink="ReportAudit" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Audit</h5>
+                                </div>
+                            </mat-list-item>
+                        </div>
+                    </mat-nav-list>
+
+
+                    <mat-list-item routerLinkActive="active" (click)="expand9 = !expand9">
+                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                            aria-hidden="true"
+                            ></i>
+                    </mat-icon>
+                        <div fxFlex="10"></div>
+                        <div class="sidenav-item">
+                            <h5 class="lead">Addition Form</h5>
+                        </div>
+                        <div class="sb-sidenav-collapse-arrow">
+                            <i *ngIf="!expand9" class="fas fa-chevron-down" aria-hidden="true"></i>
+                            <i *ngIf="expand9" class="fas fa-chevron-up" aria-hidden="true"></i>
+                        </div>
+                    </mat-list-item>
+                    <mat-nav-list style=" padding-left: 5px; " *ngIf="expand9">
+                        <div class="sub-menu">
+                
+                          
+                           
+                            <mat-list-item style="padding-left: 5px;"  routerLink="elevator_list" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">ELEVATOR SERVICE</h5>
+                                </div>
+                            </mat-list-item>
+        
+                            <mat-list-item style="padding-left: 5px;"  routerLink="escalator_list" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">ESCALATOR SERVICE</h5>
+                                </div>
+                            </mat-list-item>
+
+                            <mat-list-item style="padding-left: 5px;"  routerLink="van_list" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">VAN DETAIL</h5>
+                                </div>
+                            </mat-list-item>
+
+
+                            </div>
+                    </mat-nav-list>
+
+
+
+                    <mat-list-item routerLinkActive="active" (click)="expand1 = !expand1">
+                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                            aria-hidden="true"
+                            ></i>
+                    </mat-icon>
+                        <div fxFlex="10"></div>
+                        <div class="sidenav-item">
+                            <h5 class="lead">Tracking</h5>
+                        </div>
+                        <div class="sb-sidenav-collapse-arrow">
+                            <i *ngIf="!expand1" class="fas fa-chevron-down" aria-hidden="true"></i>
+                            <i *ngIf="expand1" class="fas fa-chevron-up" aria-hidden="true"></i>
+                        </div>
+                    </mat-list-item>
+                    <mat-nav-list style=" padding-left: 5px; " *ngIf="expand1">
+                        <div class="sub-menu">
+                
+                          
+                           
+                            <mat-list-item style="padding-left: 5px;"  routerLink="Job-tracking" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Job Tracking</h5>
+                                </div>
+                            </mat-list-item>
+                        
+                            <mat-list-item style="padding-left: 5px;"  routerLink="employee-tracking" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Employee Tracking</h5>
+                                </div>
+                            </mat-list-item>
+                            </div>
+                    </mat-nav-list>
+            
+            <mat-list-item style="padding-left: 5px;" routerLink="AdminAccess" routerLinkActive="active" *ngIf="Admin_check !== true">
+                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                        aria-hidden="true"
+                        ></i>
+                </mat-icon>
+                <div fxFlex="10"></div>
+                <div class="sidenav-item">
+                    <h5 class="lead">Admin Access</h5>
+                </div>
+             </mat-list-item>
+
+            <mat-list-item style="padding-left: 5px;" routerLink="service_notification" routerLinkActive="active"*ngIf="Admin_check !== true">
+                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                        aria-hidden="true"
+                        ></i>
+                </mat-icon>
+                <div fxFlex="10"></div>
+                <div class="sidenav-item">
+                    <h5 class="lead">Service Notification</h5>
+                </div>
+            </mat-list-item>
+
+
+            <mat-list-item style="padding-left: 5px;" routerLink="jobs_count" routerLinkActive="active"*ngIf="Admin_check !== true">
+                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                        aria-hidden="true"
+                        ></i>
+                </mat-icon>
+                <div fxFlex="10"></div>
+                <div class="sidenav-item">
+                    <h5 class="lead">Job Count</h5>
+                </div>
+            </mat-list-item>
+
+
+            <mat-list-item style="padding-left: 5px;" routerLink="temp_data_count" routerLinkActive="active"*ngIf="Admin_check !== true">
+                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                        aria-hidden="true"
+                        ></i>
+                </mat-icon>
+                <div fxFlex="10"></div>
+                <div class="sidenav-item">
+                    <h5 class="lead">Temp Data Count</h5>
+                </div>
+            </mat-list-item>
+
+
+            <mat-list-item style="padding-left: 5px;" routerLink="service_form_data_count" routerLinkActive="active"*ngIf="Admin_check !== true">
+                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                        aria-hidden="true"
+                        ></i>
+                </mat-icon>
+                <div fxFlex="10"></div>
+                <div class="sidenav-item">
+                    <h5 class="lead">Service Form Data Count</h5>
+                </div>
+            </mat-list-item>
+
+
+            
+            
+
+
+            <mat-list-item routerLinkActive="active" (click)="expand4 = !expand4" *ngIf="Admin_check !== true">
+                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                    aria-hidden="true"
+                    ></i>
+                        </mat-icon>
+                        <div fxFlex="10"></div>
+                        <div class="sidenav-item">
+                            <h5 class="lead">Mark Complete</h5>
+                        </div>
+                        <div class="sb-sidenav-collapse-arrow">
+                            <i *ngIf="!expand4" class="fas fa-chevron-down" aria-hidden="true"></i>
+                            <i *ngIf="expand4" class="fas fa-chevron-up" aria-hidden="true"></i>
+                        </div>
+                     </mat-list-item>
+                     <mat-nav-list style=" padding-left: 5px; " *ngIf="expand4">
+                        <div class="sub-menu">
+                
+                            <!-- service-report -->
+                            <!-- ReportBreakdownComponent -->
+                            <mat-list-item style="padding-left: 5px;"  routerLink="makecompletebd" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Breakdown (MC)</h5>
+                                </div>
+                            </mat-list-item>
+        
+                            <mat-list-item style="padding-left: 5px;"  routerLink="makecompletepm" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Preventive  (MC) </h5>
+                                </div>
+                            </mat-list-item>
+        
+        
+                            <mat-list-item style="padding-left: 5px;"  routerLink="makecompletemrbd" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">MR Breakdown (MC) </h5>
+                                </div>
+                            </mat-list-item>
+        
+                            <mat-list-item style="padding-left: 5px;"  routerLink="makecompletemrpm" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">MR  Preventive (MC)</h5>
+                                </div>
+                            </mat-list-item>
+        
+                    
+                            <mat-list-item style="padding-left: 5px;" routerLink="makecompletepr" routerLinkActive="">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Parts Replacement  (MC)</h5>
+                                </div>
+                            </mat-list-item>
+        
+        
+                            <mat-list-item style="padding-left: 5px;" routerLink="makecompletead" routerLinkActive="">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Audit  (MC)</h5>
+                                </div>
+                            </mat-list-item>
+                        </div>
+                    </mat-nav-list>
+
+
+
+                    <mat-list-item routerLinkActive="active" (click)="RepullJob = !RepullJob">
+                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                            aria-hidden="true"
+                            ></i>
+                    </mat-icon>
+                        <div fxFlex="10"></div>
+                        <div class="sidenav-item">
+                            <h5 class="lead">Check Oracel Job</h5>
+                        </div>
+                        <div class="sb-sidenav-collapse-arrow">
+                            <i *ngIf="!expand1" class="fas fa-chevron-down" aria-hidden="true"></i>
+                            <i *ngIf="expand1" class="fas fa-chevron-up" aria-hidden="true"></i>
+                        </div>
+                    </mat-list-item>
+                    <mat-nav-list style=" padding-left: 5px; " *ngIf="RepullJob">
+                        <div class="sub-menu">
+                
+                          
+                           
+                            <mat-list-item style="padding-left: 5px;"  routerLink="BreakeDown" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Breake down</h5>
+                                </div>
+                            </mat-list-item>
+        
+                            <mat-list-item style="padding-left: 5px;"  routerLink="Preventive" routerLinkActive="active">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Preventive </h5>
+                                </div>
+                            </mat-list-item>
+                
+                            <mat-list-item style="padding-left: 5px;" routerLink="MrBreakeDown" routerLinkActive="" >
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Mr  Breake down</h5>
+                                </div>
+                            </mat-list-item>
+        
+                            <mat-list-item style="padding-left: 5px;" routerLink="MrPreventive" routerLinkActive="">
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">MR Preventive</h5>
+                                </div>
+                            </mat-list-item>
+                     
+                            <mat-list-item style="padding-left: 5px;" routerLink="Lr" routerLinkActive="" >
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">LR</h5>
+                                </div>
+                            </mat-list-item>
+        
+                            <mat-list-item style="padding-left: 5px;" routerLink="PartReplacement" routerLinkActive="" >
+                                
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Part Replacement</h5>
+                                </div>
+                            </mat-list-item>
+        
+                            <mat-list-item style="padding-left: 5px;" routerLink="Audit" routerLinkActive="" >
+                                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                    ></i>
+                            </mat-icon>
+                                <div fxFlex="10"></div>
+                                <div class="sidenav-item">
+                                    <h5 class="lead">Audit</h5>
+                                </div>
+                            </mat-list-item>
+                            </div>
+                    </mat-nav-list>
+        
+         
+                    <mat-list-item style="padding-left: 5px;" routerLink="service-setting" routerLinkActive="active" *ngIf="Admin_check !== true">
+                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
+                                aria-hidden="true"
+                                ></i>
+                        </mat-icon>
+                        <div fxFlex="10"></div>
+                        <div class="sidenav-item">
+                            <h5 class="lead">Settings</h5>
+                        </div>
+                     </mat-list-item>
   
 
             
   
-            <mat-list-item style="padding-left: 5px;" routerLink="service-employee" routerLinkActive="active"*ngIf="Admin_check !== true">
-              <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                      aria-hidden="true"
-                      ></i>
-              </mat-icon>
-              <div fxFlex="10"></div>
-              <div class="sidenav-item">
-                  <h5 class="lead">Employee</h5>
-              </div>
-          </mat-list-item>
+          
+
+         
+
+
+          
+
+
           <mat-list-item style="padding-left: 5px;" routerLink="sub-admin-employee" routerLinkActive="active"*ngIf="Admin_check == true">
             <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
                     aria-hidden="true"
@@ -91,142 +538,8 @@
                 <h5 class="lead">Services</h5>
             </div>
          </mat-list-item> -->
-         <mat-list-item routerLinkActive="active" (click)="expand1 = !expand1" *ngIf="Admin_check !== true">
-            <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                aria-hidden="true"
-                ></i>
-        </mat-icon>
-            <div fxFlex="10"></div>
-            <div class="sidenav-item">
-                <h5 class="lead">Tracking</h5>
-            </div>
-            <div class="sb-sidenav-collapse-arrow">
-                <i *ngIf="!expand1" class="fas fa-chevron-down" aria-hidden="true"></i>
-                <i *ngIf="expand1" class="fas fa-chevron-up" aria-hidden="true"></i>
-            </div>
-        </mat-list-item>
-           <mat-nav-list style=" padding-left: 5px; " *ngIf="expand1">
-            <div class="sub-menu">
-    
-              
-               
-                <mat-list-item style="padding-left: 5px;"  routerLink="Job-tracking" routerLinkActive="active" *ngIf="Admin_check !== true">
-                    <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                        aria-hidden="true"
-                        ></i>
-                </mat-icon>
-                    <div fxFlex="10"></div>
-                    <div class="sidenav-item">
-                        <h5 class="lead">Job Tracking</h5>
-                    </div>
-                </mat-list-item>
-            
-                <mat-list-item style="padding-left: 5px;"  routerLink="employee-tracking" routerLinkActive="active" *ngIf="Admin_check !== true">
-                    <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                        aria-hidden="true"
-                        ></i>
-                </mat-icon>
-                    <div fxFlex="10"></div>
-                    <div class="sidenav-item">
-                        <h5 class="lead">Employee Tracking</h5>
-                    </div>
-                </mat-list-item>
-                </div>
-                </mat-nav-list>
-  
-              <!-- <mat-list-item style="padding-left: 5px;" routerLink="field_management" routerLinkActive="active">
-                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                        aria-hidden="true"
-                        ></i>
-                </mat-icon>
-                <div fxFlex="10"></div>
-                <div class="sidenav-item">
-                    <h5 class="lead">Field Management</h5>
-                </div>
-            </mat-list-item> -->
-  
-  
-  
-  
-  
-           <!-- <mat-list-item style="padding-left: 5px;" routerLink="service-report" routerLinkActive="active"  (click)="expand25 = !expand25">-->
-   <mat-list-item routerLinkActive="active" (click)="expand25 = !expand25">
-    <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-        aria-hidden="true"
-        ></i>
-            </mat-icon>
-            <div fxFlex="10"></div>
-            <div class="sidenav-item">
-                <h5 class="lead">Reports</h5>
-            </div>
-            <div class="sb-sidenav-collapse-arrow">
-                <i *ngIf="!expand25" class="fas fa-chevron-down" aria-hidden="true"></i>
-                <i *ngIf="expand25" class="fas fa-chevron-up" aria-hidden="true"></i>
-            </div>
-         </mat-list-item>
-         <mat-nav-list style=" padding-left: 5px; " *ngIf="expand25">
-            <div class="sub-menu">
-    
-                <!-- service-report -->
-                <!-- ReportBreakdownComponent -->
-                <mat-list-item style="padding-left: 5px;"  routerLink="ReportBreakdownComponent" routerLinkActive="active">
-                    <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                        aria-hidden="true"
-                        ></i>
-                </mat-icon>
-                    <div fxFlex="10"></div>
-                    <div class="sidenav-item">
-                        <h5 class="lead">Breakdown Service</h5>
-                    </div>
-                </mat-list-item>
-                <mat-list-item style="padding-left: 5px;"  routerLink="ReporePreventiveMaintenanceComponent" routerLinkActive="active">
-                    <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                        aria-hidden="true"
-                        ></i>
-                </mat-icon>
-                    <div fxFlex="10"></div>
-                    <div class="sidenav-item">
-                        <h5 class="lead">Preventive Maintenance</h5>
-                    </div>
-                </mat-list-item>
-    
-                <mat-list-item style="padding-left: 5px;" routerLink="ReportLrComponent" routerLinkActive="" >
-                    <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                        aria-hidden="true"
-                        ></i>
-                </mat-icon>
-                    <div fxFlex="10"></div>
-                    <div class="sidenav-item">
-                        <h5 class="lead">
-                            LR SERVICE</h5>
-                    </div>
-                </mat-list-item>
-                <mat-list-item style="padding-left: 5px;" routerLink="ReportPartsRepComponent" routerLinkActive="">
-                    <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                        aria-hidden="true"
-                        ></i>
-                </mat-icon>
-                    <div fxFlex="10"></div>
-                    <div class="sidenav-item">
-                        <h5 class="lead">Parts Replacement ACK </h5>
-                    </div>
-                </mat-list-item>
+       
 
-                <mat-list-item style="padding-left: 5px;"  routerLink="ReportAudit" routerLinkActive="active">
-                    <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                        aria-hidden="true"
-                        ></i>
-                </mat-icon>
-                    <div fxFlex="10"></div>
-                    <div class="sidenav-item">
-                        <h5 class="lead">Audit</h5>
-                    </div>
-                </mat-list-item>
-
-
-
-            </div>
-        </mat-nav-list>
 
 
    
@@ -235,263 +548,18 @@
        
   
       
-       <mat-list-item routerLinkActive="active" (click)="expand4 = !expand4" *ngIf="Admin_check !== true">
-        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-            aria-hidden="true"
-            ></i>
-                </mat-icon>
-                <div fxFlex="10"></div>
-                <div class="sidenav-item">
-                    <h5 class="lead">Mark Complete</h5>
-                </div>
-                <div class="sb-sidenav-collapse-arrow">
-                    <i *ngIf="!expand4" class="fas fa-chevron-down" aria-hidden="true"></i>
-                    <i *ngIf="expand4" class="fas fa-chevron-up" aria-hidden="true"></i>
-                </div>
-             </mat-list-item>
-             <mat-nav-list style=" padding-left: 5px; " *ngIf="expand4">
-                <div class="sub-menu">
-        
-                    <!-- service-report -->
-                    <!-- ReportBreakdownComponent -->
-                    <mat-list-item style="padding-left: 5px;"  routerLink="makecompletebd" routerLinkActive="active">
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">Breakdown (MC)</h5>
-                        </div>
-                    </mat-list-item>
-
-                    <mat-list-item style="padding-left: 5px;"  routerLink="makecompletepm" routerLinkActive="active">
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">Preventive  (MC) </h5>
-                        </div>
-                    </mat-list-item>
-
-
-                    <mat-list-item style="padding-left: 5px;"  routerLink="makecompletemrbd" routerLinkActive="active">
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">MR Breakdown (MC) </h5>
-                        </div>
-                    </mat-list-item>
-
-                    <mat-list-item style="padding-left: 5px;"  routerLink="makecompletemrpm" routerLinkActive="active">
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">MR  Preventive (MC)</h5>
-                        </div>
-                    </mat-list-item>
-
-            
-                    <mat-list-item style="padding-left: 5px;" routerLink="makecompletepr" routerLinkActive="">
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">Parts Replacement  (MC)</h5>
-                        </div>
-                    </mat-list-item>
-
-
-                    <mat-list-item style="padding-left: 5px;" routerLink="makecompletead" routerLinkActive="">
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">Audit  (MC)</h5>
-                        </div>
-                    </mat-list-item>
-                </div>
-            </mat-nav-list>
+      
   
     <!-- /////////////////////////////////////////////////////////////       -->
 
 
 
 
-            <mat-list-item routerLinkActive="active" (click)="RepullJob = !RepullJob">
-                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                    aria-hidden="true"
-                    ></i>
-            </mat-icon>
-                <div fxFlex="10"></div>
-                <div class="sidenav-item">
-                    <h5 class="lead">Check Oracel Job</h5>
-                </div>
-                <div class="sb-sidenav-collapse-arrow">
-                    <i *ngIf="!expand1" class="fas fa-chevron-down" aria-hidden="true"></i>
-                    <i *ngIf="expand1" class="fas fa-chevron-up" aria-hidden="true"></i>
-                </div>
-            </mat-list-item>
-            <mat-nav-list style=" padding-left: 5px; " *ngIf="RepullJob">
-                <div class="sub-menu">
+       
+
+           
         
-                  
-                   
-                    <mat-list-item style="padding-left: 5px;"  routerLink="BreakeDown" routerLinkActive="active">
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">Breake down</h5>
-                        </div>
-                    </mat-list-item>
-
-                    <mat-list-item style="padding-left: 5px;"  routerLink="Preventive" routerLinkActive="active">
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">Preventive </h5>
-                        </div>
-                    </mat-list-item>
-        
-                    <mat-list-item style="padding-left: 5px;" routerLink="MrBreakeDown" routerLinkActive="" >
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">Mr  Breake down</h5>
-                        </div>
-                    </mat-list-item>
-
-                    <mat-list-item style="padding-left: 5px;" routerLink="MrPreventive" routerLinkActive="">
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">MR Preventive</h5>
-                        </div>
-                    </mat-list-item>
-             
-                    <mat-list-item style="padding-left: 5px;" routerLink="Lr" routerLinkActive="" >
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">LR</h5>
-                        </div>
-                    </mat-list-item>
-
-                    <mat-list-item style="padding-left: 5px;" routerLink="PartReplacement" routerLinkActive="" >
-                        
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">Part Replacement</h5>
-                        </div>
-                    </mat-list-item>
-
-                    <mat-list-item style="padding-left: 5px;" routerLink="Audit" routerLinkActive="" >
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">Audit</h5>
-                        </div>
-                    </mat-list-item>
-                    </div>
-            </mat-nav-list>
-
-
-            <mat-list-item routerLinkActive="active" (click)="expand9 = !expand9">
-                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                    aria-hidden="true"
-                    ></i>
-            </mat-icon>
-                <div fxFlex="10"></div>
-                <div class="sidenav-item">
-                    <h5 class="lead">Addition Form</h5>
-                </div>
-                <div class="sb-sidenav-collapse-arrow">
-                    <i *ngIf="!expand9" class="fas fa-chevron-down" aria-hidden="true"></i>
-                    <i *ngIf="expand9" class="fas fa-chevron-up" aria-hidden="true"></i>
-                </div>
-            </mat-list-item>
-            <mat-nav-list style=" padding-left: 5px; " *ngIf="expand9">
-                <div class="sub-menu">
-        
-                  
-                   
-                    <mat-list-item style="padding-left: 5px;"  routerLink="elevator_list" routerLinkActive="active">
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">ELEVATOR SERVICE</h5>
-                        </div>
-                    </mat-list-item>
-
-                    <mat-list-item style="padding-left: 5px;"  routerLink="escalator_list" routerLinkActive="active">
-                        <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                            aria-hidden="true"
-                            ></i>
-                    </mat-icon>
-                        <div fxFlex="10"></div>
-                        <div class="sidenav-item">
-                            <h5 class="lead">ESCALATOR SERVICE</h5>
-                        </div>
-                    </mat-list-item>
-        
-                   
-
-                   
-             
-                   
-                 
-
-                  
-                    </div>
-            </mat-nav-list>
-        
-            <mat-list-item style="padding-left: 5px;" routerLink="service-setting" routerLinkActive="active" *ngIf="Admin_check !== true">
-                <mat-icon  mat-list-icon><i class="fas fa-arrow-circle-right"
-                        aria-hidden="true"
-                        ></i>
-                </mat-icon>
-                <div fxFlex="10"></div>
-                <div class="sidenav-item">
-                    <h5 class="lead">Settings</h5>
-                </div>
-             </mat-list-item>
+       
 
 
         </mat-nav-list>

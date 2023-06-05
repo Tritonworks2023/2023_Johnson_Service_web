@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminComponent } from './admin/admin.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 import { ServiceLoginComponent } from './service-login/service-login.component';
 import { SubAdminLoginComponent } from './sub-admin-login/sub-admin-login.component';
 import { ServiceAdminComponent } from './service-admin/service-admin.component';
@@ -14,13 +11,12 @@ import { PreventiveMaintenancePdfComponent } from './service-admin/components/pr
 import { ViewMrDetailsComponent } from './service-admin/components/view-mr-details/view-mr-details.component';
 import { AddiEscalatorViewComponent } from './service-admin/components/addi-escalator-view/addi-escalator-view.component';
 import { AddiElevatorViewComponent } from './service-admin/components/addi-elevator-view/addi-elevator-view.component';
+import { VanPdfviewComponent } from './service-admin/components/van-pdfview/van-pdfview.component';
 
 
 const routes: Routes = [
   // { path: '', pathMatch: 'full', redirectTo: 'login', },
 { path: '', pathMatch: 'full', redirectTo: 'service-login', },
-{ path: 'login', component: LoginComponent, },
-  { path: 'home', component: HomeComponent, },
   { path: 'service-login', component: ServiceLoginComponent, },
   { path: 'sub-admin-login', component: SubAdminLoginComponent, },
 
@@ -34,6 +30,8 @@ const routes: Routes = [
 
   { path: 'escalator_view/:id', component: AddiEscalatorViewComponent },
   { path: 'elevator_view/:id', component: AddiElevatorViewComponent },
+
+  { path: 'van_pdf_view/:id', component: VanPdfviewComponent },
 
 
   // { path: 'preventive-maintenance-Pdf', component: PreventiveMaintenancePdfComponent },
@@ -52,15 +50,6 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () => import(`./service-admin/service.module`).then(m => m.ServiceModule)
-      },
-    ]
-  },
-  {
-    path: 'admin', component: AdminComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () => import(`./admin/admin.module`).then(m => m.AdminModule)
       },
     ]
   },

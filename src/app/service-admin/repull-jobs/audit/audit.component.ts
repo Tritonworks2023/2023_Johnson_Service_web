@@ -31,7 +31,6 @@ export class AuditComponent implements OnInit {
 }
 
 getRecords(){
-  debugger
   var obj={
     user_mobile_no:this.user_mobile_no
   }
@@ -47,5 +46,20 @@ getRecords(){
       this.rows=response['Data'];
     })
   }
+
+
+  make_no(data){
+    console.log(data.OM_OSA_COMPNO);
+    var obj={
+      OM_OSA_COMPNO:data.OM_OSA_COMPNO
+    }
+    this._api.audit_oracle_data_update(obj).subscribe((response: any) => {
+      this.rows=response['Data'];
+      this.refersh();
+    })
+    }
+
+
+
 
 }

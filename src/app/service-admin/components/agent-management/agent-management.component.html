@@ -25,12 +25,12 @@
                                  
                                 </div>
                                 <div class="table-responsive">
-                                        <p-table id="demo11" [value]="rows " styleClass="ui-table-customers" #tt [paginator]="true" [rows]="15"
+                                        <p-table id="demo11" [value]="rows " styleClass="ui-table-customers" #tt [paginator]="true" [rows]="20"
                         [rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true" 
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['type']">
                         <ng-template pTemplate="header"  >
                             <tr class="thhead"  >
-                                <th><input type="checkbox"></th>
+                                <th style="width :  40px"><input type="checkbox"></th>
                               
                                <!-- <th [pSortableColumn]="service_code" style="min-width:209px" >
                                     ServiceCode<p-sortIcon [field]="service_code"></p-sortIcon>
@@ -40,14 +40,15 @@
                                         ServiceName<p-sortIcon [field]="service_code"></p-sortIcon>
                                           
                                     </th > -->
-                                    <th style="min-width:209px" >
-                                            ServiceCode
-                                              
-                                        </th >
+                                    
                                         <th  style="min-width:209px" >
                                                 ServiceName
                                                   
                                             </th >
+                                            <!-- <th style="min-width:209px" >
+                                                ServiceCode
+                                                  
+                                            </th > -->
                                 
                                 <!-- <th style="width: 163px;text-align:center">
                                     Action
@@ -55,9 +56,9 @@
                             </tr>
                             <tr   >
                                 <th></th>
-                                <th >
+                                <!-- <th >
                                   <input  pInputText type="text" placeholder="Search" (input)="tt.filter($event.target.value, 'service_code', 'contains');" class="filtro">
-                                </th>
+                                </th> -->
     <th>
                                   <input  pInputText type="text" placeholder="Search" (input)="tt.filter($event.target.value, 'service_name', 'contains');" class="filtro">
                               
@@ -69,11 +70,11 @@
                         
                                                                 <ng-template pTemplate="body" let-item  let-i="rowIndex">
                           <tr class="tdrow">
-                            <td ><input type="checkbox" [checked]="item.check" (change)="toggleVisibility($event,item)">
+                            <td style="width : 40px" ><input type="checkbox" [checked]="item.check" (change)="toggleVisibility($event,item)">
                             </td>
-                            <td>
+                            <!-- <td>
                                   {{item.service_code}}
-                            </td>
+                            </td> -->
                             <td>
                                 {{item.service_name}}
                                 </td>
@@ -83,7 +84,7 @@
                                 <!-- <td class="act">
                                     <i style="color: #2196f3;" class="fas fa-edit" aria-hidden="true" (click)="Editcompanydetailsdata(item)" pTooltip="Edit"></i>
                                     <i style="color: #fd2c3a;" class="fa fa-trash" aria-hidden="true" pTooltip="Delete" (click)="Deletecompanydetails(item._id)"></i>
-                                    <!-- <i style="color: #4CAF50;" class="fa fa-info-circle" aria-hidden="true" pTooltip="View"></i> 
+                                     <i style="color: #4CAF50;" class="fa fa-info-circle" aria-hidden="true" pTooltip="View"></i> 
                                 </td> -->
                             </tr>
                         </ng-template>

@@ -769,9 +769,9 @@
                                 <td *ngFor="let e of header4">
                                     <span *ngIf="e == 'OM_OSA_SEQNO'">{{item.OM_OSA_SEQNO}}</span>   
                                     <span *ngIf="e == 'OM_OSA_JOBNO'">
-                                        <span class="Pr-2" style="color:blue">{{item.OM_OSA_JOBNO}}</span>    
+                                        <span class="Pr-2" style="color:blue">{{item.OM_OSA_JOBNO}} <i class="fa fa-eye" aria-hidden="true" (click)="view_mr_2(item,'audit')"></i></span>    
                                     </span>
-                                    <span *ngIf="e == 'OM_OSA_COMPNO'">{{item.OM_OSA_COMPNO}}</span>
+                                    <span *ngIf="e == 'OM_OSA_COMPNO'">{{item.OM_OSA_COMPNO}} </span>
                                     <span *ngIf="e == 'JOB_STATUS'">{{item.JOB_STATUS}}</span>                                    
                                     <span *ngIf="e == 'OM_OSA_BRCODE'">{{item.OM_OSA_BRCODE}}</span>
                                     <span *ngIf="e == 'OM_OSA_CUSNAME'">{{item.OM_OSA_CUSNAME}}</span>

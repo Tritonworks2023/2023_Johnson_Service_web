@@ -1,0 +1,136 @@
+<section>
+    <div class="page-header">
+        <div>
+            <h2 class="main-content-title tx-24 mb-1">SERVICE FORM UPLOAD AND SUBMITTED DATA</h2>
+            <!-- <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="dashboard">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">App User Management</li>
+                </ol> -->
+        </div>
+    </div>
+
+
+    <div class="loader" *ngIf="loader_visible"></div>
+    <div class="row row-sm" *ngIf="!loader_visible">
+        <div class="col-lg-12">
+        <h2>SERVICE MOUDLE JOB & COMPLAINT COUNTS</h2>
+        </div>
+        <div class="col-lg-12">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <div class="card-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="search-hero">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="fas fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control" type="text" name="search2" [(ngModel)]="searchQR"
+                                            autocomplete="off" placeholder="Search...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <button type="button" class="btn btn-secondary" (click)="refersh()"><i
+                                        class="fas fa-sync-alt"></i> Refresh</button>
+                            </div>
+                        </div>
+
+
+                        <div class="table-responsive">
+                            <table>
+                                <tr class="thhead">
+                                        <th style=" width: 70px ">S.No</th>
+                                        <th style=" width: 150px ">ACTIVITY</th>
+                                        <th style=" width: 150px ">COUNT</th>                            
+                                    </tr>
+                                <tr >
+                                    <td>1</td>
+                                    <td>Breakdown</td>
+                                    <td>{{rows.bd_total_count}}</td>
+                                </tr>
+                                <tr >
+                                    <td>2</td>
+                                    <td>Preventive</td>
+                                    <td>{{rows.pm_total_count}}</td>       
+                                </tr>
+                                <tr >
+                                    <td>3</td>
+                                    <td>BD MR</td>
+                                    <td>{{rows.mr_bd_total_count}}</td>
+                                </tr>
+                                <tr >
+                                    <td>4</td>
+                                    <td>PR MR</td>
+                                    <td>{{rows.mr_pm_total_count}}</td>
+                                </tr>
+                                <tr >
+                                    <td>5</td>
+                                    <td>LR Service</td>
+                                    <td>{{rows.lr_total_count}}</td>
+                                </tr>
+                                <tr >
+                                    <td>6</td>
+                                    <td>Part Replacement ACK</td>
+                                    <td>{{rows.pr_total_count}}</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>AUDIT </td>
+                                    <td>{{rows.ad_total_count}}</td>
+                                </tr> 
+                                <tr>
+                                    <td>8</td>
+                                    <td>MATERIAL REQUEST </td>
+                                    <td>{{rows.mr_total_count}}</td>
+                                </tr> 
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <h2>DELETE JOB</h2>
+        </div>
+        <div class="col-lg-12">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <span> *If you have deleted the job. It will remove form the database you can't retrive. make sure before you delete.</span>
+                    <div class="card-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="cars">Select Activity</label>
+                                <select name="cars" id="cars">
+                                  <option value="Preventive">Preventive</option>
+                                  <option value="Breakdown">Breakdown</option>
+                                  <option value="MR Breakdown">MR Breakdown</option>
+                                  <option value="Mr Preventive">Mr Preventive</option>
+                                  <option value="LR Service">LR Service</option>
+                                  <option value="Part Replacement">Part Replacement</option>
+                                  <option value="Audit">Audit</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="cars">Select Job Status Type</label>
+                                <select name="status" id="status">
+                                  <option value="volvo">Job Started</option>
+                                  <option value="saab">Job Resume</option>
+                                  <option value="mercedes">Mercedes</option>
+                                  <option value="audi">Audi</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                               <button>Fetch</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,444 @@
+<section class="pb-4">
+    <div class="page-header">
+        <div>
+            <h2 class="main-content-title tx-24 mb-1"></h2>
+            <!-- <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="dashboard">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">App User Management</li>
+                </ol> -->
+        </div>
+        <div class="col-md-6 text-right">
+            <button type="button" class="btn btn-primary" (click)="printComponent('component1')"><i
+                    class="fas fa-download"></i>
+                Download</button>
+        </div>
+
+    </div>
+    <div class="container" id="component1">
+        <div class="row bg" class="border border-secondary pd-4" style="background: white;color: black;">
+            <div class="col"></div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4 center font-weight-normal ">
+                    <h2 class="main-content-title tx-24 mb-1">JOHNSON LIFTS PRIVATE LIMITED</h2>
+                    <p>{{branch_name}}</p>
+                    <!-- <p> ORISSA 751015 PH- 0674-2554638, 3270085,2354238</p> -->
+                </div>
+                <div class="col-4 sic"><img src="../../../../assets/images/logo.PNG" alt="" style="width: 50%;"></div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+
+                </div>
+                <div class="col-8 ">
+                    <h2 class="main-content-title tx-24 mb-1 pd">DELIVERY CHALAN</h2>
+                </div>
+            </div>
+            <!-- <div class="row">
+            <div class="col-12 p-4">
+                <h2 class="main-content-title tx-24 mb-1 border border-primary center bg1">BREAKDOWN SERVICE DETAILS
+                </h2>
+            </div>
+        </div> -->
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="tx-24 mb-1" style="margin-left: 22px;">Issue Date : {{signature_date | date}}</h2>
+                    <h2 class="tx-24 mb-1" style="margin-left: 22px;">Issue Number : L1032-P01_1672825040</h2>
+                 </div>
+                <div class="col-12 pl-5 pr-5">
+                    <div class="row  border border-secondary ">
+                        <div class="col-12">
+                            <div class="row justify-content-center" style="background-color: #006598;">
+                                <h2 class="main-content-title tx-24 mb-1 pt-1" style="color: white;">JOB DETAILS</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+
+                                    <div class="row">
+
+                                        <div class="col-5">
+
+                                            <h2 class="main-content-title tx-24 mb-1 pt-1">JOB NO </h2>
+
+
+                                        </div>
+                                        <div class="col-1">
+
+
+                                            <h2 class="main-content-title tx-24 mb-1 pt-1">: </h2>
+
+                                        </div>
+                                        <div class="col-6">
+
+
+                                            <h2 class="main-content-title tx-24 mb-1 pt-1">{{job_no}} </h2>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-5">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">Customer</p>
+
+
+
+                                        </div>
+                                        <div class="col-1">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+
+
+
+                                        </div>
+                                        <div class="col-6">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">{{customer_name}}</p>
+
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-5">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">Customer Address1</p>
+
+
+                                        </div>
+                                        <div class="col-1">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+
+
+                                        </div>
+                                        <div class="col-6">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">{{address1}}</p>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-5">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">Customer Address2</p>
+
+
+                                        </div>
+                                        <div class="col-1">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+
+
+                                        </div>
+                                        <div class="col-6">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">{{address2}}</p>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-5">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">Customer Address3</p>
+
+
+                                        </div>
+                                        <div class="col-1">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+
+
+                                        </div>
+                                        <div class="col-6">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">{{address3}}</p>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-5">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">Customer Address4</p>
+
+
+                                        </div>
+                                        <div class="col-1">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+
+
+                                        </div>
+                                        <div class="col-6">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">{{address4}}</p>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-5">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">Customer Pin </p>
+
+
+                                        </div>
+                                        <div class="col-1">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+
+
+                                        </div>
+                                        <div class="col-6">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">{{pin}}</p>
+
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-6">
+
+
+                                    <div class="row">
+
+                                        <div class="col-5">
+
+                                            <h2 class="main-content-title tx-24 mb-1 pt-1">Technician’s Name</h2>
+
+
+                                        </div>
+                                        <div class="col-1">
+
+
+                                            <h2 class="main-content-title tx-24 mb-1 pt-1">: </h2>
+
+                                        </div>
+                                        <div class="col-6">
+
+
+                                            <h2 class="main-content-title tx-24 mb-1 pt-1">{{tech_name}} </h2>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-5">
+
+                                            <h2 class="main-content-title tx-24 mb-1 pt-1">Technician’s Mobile </h2>
+
+
+                                        </div>
+                                        <div class="col-1">
+
+
+                                            <h2 class="main-content-title tx-24 mb-1 pt-1">: </h2>
+
+                                        </div>
+                                        <div class="col-6">
+
+
+                                            <h2 class="main-content-title tx-24 mb-1 pt-1">{{ref_number}} </h2>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-5">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">Date</p>
+
+
+                                        </div>
+                                        <div class="col-1">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+
+
+                                        </div>
+                                        <div class="col-6">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">{{date | date: 'medium'}}</p>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-5">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">Time reported </p>
+
+
+                                        </div>
+                                        <div class="col-1">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+
+
+                                        </div>
+                                        <div class="col-6">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">{{time_reported | date: 'medium'}}</p>
+
+
+                                        </div>
+                                    </div>
+                                   
+                                    
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pb-3 pt-4">
+                <div class="col-6 pl-5 pr-5">
+                    <div class="row  border border-secondary ">
+
+                        <div class="col-12 ht " >
+                            <div class="row justify-content-center" style="background-color:#006598;">
+                                <h2 class="main-content-title tx-24 mb-1 pt-1 " style="color: white;">MATERIAL DETAILS
+                                </h2>
+                            </div>
+                            <div class="row"*ngFor = "let title of mat_data">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <p class="main-content-title tx-20 mb-1 pt-1">Material ID </p>
+                                        </div>
+                                        <div class="col-1">
+                                            <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="main-content-title tx-20 mb-1 pt-1">{{title.mat_id}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <p class="main-content-title tx-20 mb-1 pt-1">Material Quantity</p>
+                                            <p class="main-content-title tx-17 mb-1 pt-1" style="font-weight:100">(As
+                                                per the respective Material ID’s
+                                                above)
+                                            </p>
+
+                                        </div>
+                                        <div class="col-1">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+
+
+
+                                        </div>
+                                        <div class="col-6">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">{{title.qty}}</p>
+
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-5">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">Type</p>
+
+
+                                        </div>
+                                        <div class="col-1">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">:</p>
+
+
+                                        </div>
+                                        <div class="col-6">
+
+                                            <p class="main-content-title tx-20 mb-1 pt-1">{{title.type}}</p>
+
+
+                                        </div>
+                                    </div>
+<hr>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-6 pl-5 pr-5">
+                    <div class="row border border-secondary ">
+
+                        <div class="col-12 ht">
+                            <div class="row justify-content-center" style="background-color:#006598;">
+                                <h2 class="main-content-title tx-24 mb-1 pt-1" style="color: white;">SIGNATURE</h2>
+                            </div>
+                            <!-- <h2 class="main-content-title tx-24 mb-1 pt-1">SIGNATURE</h2> -->
+                            <div class="row">
+                                <div class="col-6">
+                                    <img src="" alt="" style="width: 50%;">
+                                    <!-- <p class="main-content-title tx-20 mb-1 pt-1">Date : {{signature_date}} -->
+                                    <p class="main-content-title tx-20 mb-1 pt-1">Agent Signature</p>
+                                    <!-- <p class="main-content-title tx-20 mb-1 pt-1">Date : {{signature_date}}</p> -->
+                                </div>
+                                <div class="col-6">
+                                    <img src="{{mec_sign}}" alt="" style="width: 50%;">
+                                    <!-- <p class="main-content-title tx-20 mb-1 pt-1">Date : {{signature_date}} -->
+                                    <p class="main-content-title tx-20 mb-1 pt-1">Tech Signature</p>
+                                    <!-- <p class="main-content-title tx-20 mb-1 pt-1">Date : {{signature_date}}</p> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-2 pl-5">
+                <div class="col-6 ht">
+                    <div class="row pt-2">
+                        <div class="col-1">
+                            <h3>Date</h3>
+                        </div>
+                        <div class="col-1">
+                            <h3>:</h3>
+                        </div>
+                        <div class="col-10 pt-1">{{date | date: 'medium'}}</div>
+                    </div>
+
+                </div>
+                <div class="col-6">
+                    <!-- <div class="row pt-2 justify-content-center">
+                        <h3 style="font-family: cursive;">{{tech_name}}</h3>
+                   
+                    </div> -->
+                </div>
+            </div>
+            <div class="row pt-5">
+                <div class="col-2"></div>
+                <div class="col-8 center font-weight-normal ">
+                    <p>CAUTION : IF DOOR OPEN KEY IS USED,ENSURE THAT DOOR IS FULLY CLOSED.</p>
+                    <p pt-2> Regd. Office : No.1, East Main Road, Anna Nagar West Extension, Chennai - 600 101.</p>
+                    <p>WEBSITE: www.Johnsonliftsltd.com,PH:261520003/4/5/6</p>
+                </div>
+                <div class="col-2 "></div>
+            </div>
+        </div>
+    </div>
+
+</section>

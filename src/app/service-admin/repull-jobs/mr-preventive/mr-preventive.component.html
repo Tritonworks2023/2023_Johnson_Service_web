@@ -50,7 +50,7 @@
 
 
             <div class="table-responsive">
-                <p-table [value]="rows | filter:searchQR" styleClass="ui-table-customers" #tt [paginator]="true" [rows]="5"
+                <p-table [value]="rows | filter:searchQR" styleClass="ui-table-customers" #tt [paginator]="true" [rows]="500"
 [rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true"
 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['type']">
 <ng-template pTemplate="header">
@@ -60,31 +60,17 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
             <th style="width: 250px;">Customer Name</th>
             <th style="width: 150px;">MECHANIC</th>
             <th style="width: 150px;">Job Status</th>
-            <th style="width: 150px;">Branch Code</th>
-            <th style="width: 150px;">BRKDOWNTYPE</th>
             <th style="width: 150px;">Complaint Number</th>
-            <th style="width: 250px;">Address1</th>
-            <th style="width: 250px;">Address2</th>
-            <th style="width: 150px;">Address3</th>
-                     
-           
-        
     </tr>
 </ng-template>
 <ng-template pTemplate="body" let-item  let-i="rowIndex">
   <tr class="tdrow">
     <td>{{i+1}}</td>
-        <td>{{item.SMU_SCH_JOBNO}}</td>
-      <td>{{item.SMU_SCH_CUSNAME}}</td>
-      <td>{{item.SMU_SCH_MECHANIC}}</td>
-      <td>{{item.JOB_STATUS}}</td>
-      <td>{{item.SMU_SCH_BRCODE}}</td>
-      <td>{{item.SMU_SCH_BRKDOWNTYPE}}</td>
-      <td>{{item.SMU_SCH_COMPNO}}</td>
-      <td>{{item.SMU_SCH_CUSADD1}}</td>
-      <td>{{item.SMU_SCH_CUSADD2}}</td>
-      <td>{{item.SMU_SCH_CUSADD3}}</td>
-
+        <td>{{item.JLS_SCHM_JOBNO}}</td>
+      <td>{{item.JLS_SCHM_CUSTOMER_NAME}}</td>
+      <td>{{item.JLS_SCHM_ENGR_PHONE}}</td>
+      <td>{{item.JLS_SCHM_DWNFLAG}}</td>
+      <td>{{item.JLS_SCHM_COMPNO}}</td>
       <!-- <td>{{item.SMU_SCH_DEPUTEDDT  | date: 'dd/MM/yyyy'}}</td> -->
     </tr>
 </ng-template>

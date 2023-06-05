@@ -32,13 +32,13 @@ export class MrPreventiveComponent implements OnInit {
 }
 
 getRecords(){
-  debugger
+  
   var obj={
     user_mobile_no:this.user_mobile_no
   }
   this._api.mr_pm_oracel_data(obj).subscribe((response: any) => {
     this.rows=response['Data'];
-    
+    console.log(this.rows);
   })
 }
   refersh(){

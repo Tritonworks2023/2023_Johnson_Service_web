@@ -7,7 +7,7 @@
 
    <br>
    <br>
-  <div class="row" style="background: white;">
+  <div class="row" style="background: white;" *ngIf="Admin_check == null">
       <div class="col-md-6">
         <div style="text-align: center;">
           <h3>({{passed_date_value}}) OVER ALL BRANCH GRAPH</h3>
@@ -91,7 +91,8 @@
   
 
   <div style="text-align: center;">
-    <h3>({{passed_date_value}}) OVER ALL BRANCH WISE LOGIN DATA</h3> <button type="button" class="btn btn-secondary" (click)="filter_2()"> FILTER</button>
+    <h3 *ngIf="Admin_check == null">({{passed_date_value}}) OVER ALL BRANCH WISE LOGIN DATA</h3> <button type="button" class="btn btn-secondary" (click)="filter_2()" *ngIf="Admin_check == null"> FILTER</button>
+    <h3 *ngIf="Admin_check !== null">({{passed_date_value}}) BRANCH WISE LOGIN DATA</h3> <button type="button" class="btn btn-secondary" (click)="filter_2()" *ngIf="Admin_check !== null"> FILTER</button>
   </div>
   <div class="row">
     <div class="col-md-12" style="background: white;padding: 10px;margin: 10px;">
@@ -178,7 +179,8 @@
 
   <div class="col-md-12">
   <div style="text-align: center;">
-    <h3>({{passed_date_value}}) OVER ALL BRANCH WISE LOGIN GRAPH</h3>
+    <h3 *ngIf="Admin_check == null">({{passed_date_value}}) OVER ALL BRANCH WISE LOGIN GRAPH</h3>
+    <h3 *ngIf="Admin_check !== null">({{passed_date_value}}) BRANCH WISE LOGIN GRAPH</h3>
   </div>
     <hr>
     <div style="display: block">

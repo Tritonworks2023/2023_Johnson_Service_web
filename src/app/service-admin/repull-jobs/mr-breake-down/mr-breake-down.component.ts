@@ -32,7 +32,7 @@ export class MrBreakeDownComponent implements OnInit {
 }
 
 getRecords(){
-  debugger
+  
   var obj={
     user_mobile_no:this.user_mobile_no
   }

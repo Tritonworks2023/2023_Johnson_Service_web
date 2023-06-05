@@ -50,12 +50,14 @@
 
 
             <div class="table-responsive">
-                <p-table [value]="rows | filter:searchQR" styleClass="ui-table-customers" #tt [paginator]="true" [rows]="5"
+                <p-table [value]="rows | filter:searchQR" styleClass="ui-table-customers" #tt [paginator]="true" [rows]="500"
 [rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true"
 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['type']">
 <ng-template pTemplate="header">
     <tr class="thhead">
             <th style="width: 80px;">S.No</th>
+            <th style="width: 150px;">Action</th>
+            <th style="width: 150px;">SMU_SCH_DWNFLAG</th>
             <th style="width: 150px;">SMU_SCH_COMPNO</th>
             <th style="width: 250px;">SMU_SCH_COMPDT</th>
             <th style="width: 150px;">SMU_SCH_JOBNO</th>
@@ -72,7 +74,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
             <th style="width: 150px;">SMU_SCH_EMPCODE</th>
             <th style="width: 150px;">SMU_SCH_SERTYPE</th>
             <th style="width: 150px;">SMU_SCH_CONTNO</th>
-            <th style="width: 150px;">SMU_SCH_DWNFLAG</th>
+
             <th style="width: 150px;">SMU_SCH_CUSNAME</th>
             <th style="width: 150px;">SMU_SCH_CUSADD1</th>
             <th style="width: 150px;">SMU_SCH_CUSADD2</th>
@@ -88,13 +90,16 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
             <th style="width: 150px;">SMU_SCH_MODDT</th>
             <th style="width: 150px;">SMU_SCH_ERRDESC</th>
             <th style="width: 150px;">SMU_SCH_DOORTYPE</th>
+          
     </tr>
 </ng-template>
 <ng-template pTemplate="body" let-item  let-i="rowIndex">
   <tr class="tdrow">
     <td>{{i+1}}</td>
+    <td>  <button (click)="make_no(item)">Update</button> </td>
+    <td>  {{ item.SMU_SCH_DWNFLAG}} </td>
         <td>  {{ item.SMU_SCH_COMPNO}} </td>
-        <td>  {{ item.SMU_SCH_COMPDT}} </td>
+        <td>  {{ item.SMU_SCH_COMPDT | date}} </td>
         <td>  {{ item.SMU_SCH_JOBNO}} </td>
         <td>  {{ item.SMU_SCH_BRCODE}} </td>
         <td>  {{ item.SMU_SCH_REPORTBY}} </td>
@@ -109,7 +114,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
         <td>  {{ item.SMU_SCH_EMPCODE}} </td>
         <td>  {{ item.SMU_SCH_SERTYPE}} </td>
         <td>  {{ item.SMU_SCH_CONTNO}} </td>
-        <td>  {{ item.SMU_SCH_DWNFLAG}} </td>
+
         <td>  {{ item.SMU_SCH_CUSNAME}} </td>
         <td>  {{ item.SMU_SCH_CUSADD1}} </td>
         <td>  {{ item.SMU_SCH_CUSADD2}} </td>
@@ -125,6 +130,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
         <td>  {{ item.SMU_SCH_MODDT}} </td>
         <td>  {{ item.SMU_SCH_ERRDESC}} </td>
         <td>  {{ item.SMU_SCH_DOORTYPE}} </td>
+       
 
         
 

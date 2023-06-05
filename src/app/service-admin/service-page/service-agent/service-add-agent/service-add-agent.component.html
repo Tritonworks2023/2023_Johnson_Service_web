@@ -6,6 +6,15 @@
 
         </div>
 
+        <div class="notes">
+
+         <span>NOTE :</span> <br>
+         <span>IN-ACTIVE : REMOVED AGENTS</span> <br>
+         <span>SUSPENT : TEMPERVERY STOPPED</span> <br>
+         <span>DELETE : RESIGNED AGENTS</span> <br>
+         
+        </div>
+
     </div>
     <div class="row row-sm" *ngIf="Admin_check!==true">
         <div class="col-lg-12">
@@ -59,12 +68,12 @@
 
                                 <div class="col-md-4">
                                     <h5 class="form-lable">Personal Phone</h5>
-                                    <input type="number" pInputText name="user_per_mob"  [readOnly]="Admin_check==true"  formControlName="user_per_mob" placeholder="Personal Phone" maxlength="10"
+                                    <input type="number" pInputText name="user_per_mob"  [readOnly]="Admin_check==true"  formControlName="user_per_mob" placeholder="Personal Phone" maxlength="20"
                                         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
                                 </div>
                                 <div class="col-md-4">
                                     <h5 class="form-lable required">Employee Phone</h5>
-                                    <input type="number" pInputText name="employee_phone"  [readOnly]="Admin_check==true"  formControlName="user_mobile_no" placeholder="Employee Phone" maxlength="10"
+                                    <input type="number" pInputText name="employee_phone"  [readOnly]="Admin_check==true"  formControlName="user_mobile_no" placeholder="Employee Phone" maxlength="20"
                                         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                         [ngClass]="{ 'is-invalid': submitted && f.user_mobile_no.errors }">
                                         <span *ngIf="submitted && f.user_mobile_no.errors" class="invalid-feedback">

@@ -20,7 +20,18 @@ export class ViewMrDetailsComponent implements OnInit {
 
   rows:any;
 
-  storaged_data : any;
+  storaged_data = {
+    mr_1 : '',
+    mr_2 : '',
+    mr_3 : '',
+    mr_4 : '',
+    mr_5 : '',
+    mr_6 : '',
+    mr_7 : '',
+    mr_8 : '',
+    mr_9 : '',
+    mr_10 : ''    
+  };
 
   
   
@@ -49,9 +60,12 @@ export class ViewMrDetailsComponent implements OnInit {
   signature_date  = '';
 
 
+
   mr_details_oracel : any = [];
 
+  
 
+  types = 'audit';
 
 
 
@@ -76,30 +90,46 @@ export class ViewMrDetailsComponent implements OnInit {
       job_id : job_detail.SMU_SCH_JOBNO,
       key_value: job_detail.SMU_SCH_COMPNO
     }
-
+   
+    this.types = param[2];
+  
     
-
-    if(param[2] == 'preventive'){
+    console.log(this.types);
+    if(this.types == 'preventive'){
       this._api.preventive_data_management_comp(datas).subscribe((response: any) => {
         
         this.storaged_data = response.Data;
       });
-
-      this._api.mr_detail_breakdown(datas).subscribe((response: any) => {
-        
-        this.mr_details_oracel = response.Data;
+      this._api.mr_detail_breakdown(datas).subscribe((response: any) => {  
+      this.mr_details_oracel = response.Data;
       });
 
 
-    } else {
-      this._api.breakdown_data_details(datas).subscribe((response: any) => {
-        
+    } else if(this.types == 'breakdown'){
+      this._api.breakdown_data_details_fetch_job_id_and_oracel(datas).subscribe((response: any) => {
         this.storaged_data = response.Data;
       });
-
       this._api.mr_detail_breakdown(datas).subscribe((response: any) => {
-        
         this.mr_details_oracel = response.Data;
+      });
+    } else if(this.types == 'audit'){
+      console.log("In");
+      this._api.audit_details_fetch_job_id_and_oracel(datas).subscribe((response: any) => {
+        this.storaged_data = response.Data;
+        console.log(this.storaged_data);
+      });
+
+      this._api.mr_detail_audit(datas).subscribe((response: any) => {
+        console.log(response);
+        this.mr_details_oracel = [];        
+        response.Data.datas[0].mrData.forEach(element => {
+          this.mr_details_oracel.push({
+            JLS_SCCM_MATLID : element.partno,
+            JLS_SCCM_QTY : element.req
+          })
+        });
+   
+
       });
     }
     

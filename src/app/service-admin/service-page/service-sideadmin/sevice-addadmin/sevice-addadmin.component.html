@@ -116,13 +116,14 @@
 
                                         <p-table [value]="empList | filter:searchQR" styleClass="ui-table-customers" #tt
                                             [paginator]="true" [rows]="15" [rowHover]="true"
+                                            sortMode="multiple" [multiSortMeta]="[{field: 'code', order: 1}]"
                                             [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true"
                                             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                                             [globalFilterFields]="['type']">
                                             <ng-template pTemplate="header">
                                                 <tr class="thhead">
-                                                    <th style=" width: 50px ">
-                                                        <input type="checkbox" [checked]="employeeChecked" (change)="checkAllEmployee($event)" ></th>
+                                                    <th style=" width: 50px" pSortableColumn="check">
+                                                    <p-sortIcon field="check"></p-sortIcon></th>
                                                     <th style=" width: 150px ">Employee Name</th>
                                                     <th style=" width: 150px ">ECode</th>
                                                     <th style=" width: 150px "> Location</th>

@@ -65,7 +65,19 @@ job_search()
   this._api.job_tracking(a).subscribe(
     (response: any) => {
    
-      this.rows = response.Data;
+    
+  
+      this.rows = [];
+      response.Data.forEach(element => {
+        if(element.loc_lat == 0 || element.loc_long == 0 ){
+        }else {
+          this.rows.push(element)
+        }
+      });
+
+
+
+
       this.rows.map((e:any)=>{
         this.markers.push({
           lat: e.loc_lat,
@@ -85,8 +97,10 @@ job_search()
          })
       })
   if(this.markers.length>1){
+    
     this.origin = { lat: Number(this.markers[0].lat) , lng: Number(this.markers[0].lng)};
     this.destination = { lat: Number(this.markers[1].lat) , lng: Number(this.markers[1].lng)};
+    
    }
 
     if(this.markers.length >= 2){
@@ -148,7 +162,6 @@ job_search()
        })
       //  this.calckmValue.pop();
       setTimeout(() => {
-      
          this.calckmValue.pop()
       }, 500);
     }

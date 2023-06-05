@@ -6,8 +6,8 @@
 
    <br>
    <br>
-  <div class="row" style="background: white;">
-      <div class="col-md-6">
+  <div class="row" style="background: white;" *ngIf="Admin_check == null">
+      <div class="col-md-6" *ngIf="show_grp_one">
         <div style="text-align: center;">
           <h3>TODAY ({{passed_date_value}}) OVER ALL BRANCH GRAPH</h3>
         </div>
@@ -26,7 +26,7 @@
           </div>          
           <div class="col-md-12">
             <hr>
-            <div style="display: block">
+            <div style="display: block; height: 500;">
               <canvas baseChart
                       [datasets]="barChartData"
                       [labels]="mbarChartLabels"
@@ -40,9 +40,10 @@
           </div>
       </div>
       </div>    
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div style="text-align: center;">
           <h3>TODAY ({{passed_date_value}}) OVER ALL BRANCH DETAIL</h3><button type="button" class="btn btn-secondary" (click)="exceldownload()"> Excel</button>
+          <button type="button" class="btn btn-secondary" (click)="show_grp_one_action()"> View Graph</button>
         </div>
         <br>
        <input class="form-control" type="text" name="search2"
@@ -52,31 +53,31 @@
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['type']">
                 <ng-template pTemplate="header">
                 <tr class="thhead">
-                  <th style="font-size: 12px; width: 10px;" ></th>
-                  <th style="font-size: 12px; width: 30%;" >Name</th>
-                  <th style="font-size: 12px;" >Type</th>
-                  <th style="font-size: 12px;" >Branch</th>
-                  <th style="font-size: 12px;" >Status</th>
-                  <th style="font-size: 12px;" >In Time</th>
-                  <th style="font-size: 12px;" >Out Time</th>
-                  <th style="font-size: 12px;" >Log Out Reason</th>
+                  <th style=" width: 10px;" ></th>
+                  <th style=" width: 30%;" >Name</th>
+                  <th  >Type</th>
+                  <th  >Branch</th>
+                  <th  >Status</th>
+                  <th  >In Time</th>
+                  <th  >Out Time</th>
+                  <th  >Log Out Reason</th>
                 </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-item  let-i="rowIndex">
                 <tr class="tdrow">
-                  <td style="font-size: 12px; width: 10px;" >{{i+1}}</td>
-                  <td style="font-size: 12px;" >{{item.user_name}}</td>
-                  <td style="font-size: 12px;" >{{item.emp_type}}</td>
-                  <td style="font-size: 12px;" >{{item.user_location}}</td>
-                  <td style="font-size: 12px;" >{{item.user_type}}</td>
+                  <td style=" width: 10px;" >{{i+1}}</td>
+                  <td  >{{item.user_name}}</td>
+                  <td  >{{item.emp_type}}</td>
+                  <td  >{{item.user_location}}</td>
+                  <td  >{{item.user_type}}</td>
 
-                  <td style="font-size: 12px;" *ngIf="item.last_login_time == '-'"  >{{item.last_login_time}}</td>
-                  <td style="font-size: 12px;" *ngIf="item.last_login_time !== '-'"  >{{item.last_login_time | date : 'HH:mm'}}</td>
+                  <td  *ngIf="item.last_login_time == '-'"  >{{item.last_login_time}}</td>
+                  <td  *ngIf="item.last_login_time !== '-'"  >{{item.last_login_time | date : 'HH:mm'}}</td>
 
-                  <td *ngIf="item.Documents == ''" style="font-size: 12px;">-</td>
-                  <td *ngIf="item.Documents !== ''" style="font-size: 12px;">{{item.last_logout_time | date : 'HH:mm'}}</td>
+                  <td *ngIf="item.Documents == ''" >-</td>
+                  <td *ngIf="item.Documents !== ''" >{{item.last_logout_time | date : 'HH:mm'}}</td>
                   
-                  <td style="font-size: 12px;" >{{item.Documents}}</td>
+                  <td  >{{item.Documents}}</td>
                 </tr>
                 </ng-template>
         </p-table> 
@@ -90,7 +91,9 @@
   
 
   <div style="text-align: center;">
-    <h3>TODAY ({{passed_date_value}}) OVER ALL BRANCH WISE LOGIN DATA</h3> <button type="button" class="btn btn-secondary" (click)="filter_2()"> FILTER</button>
+    <h3 *ngIf="Admin_check == null">TODAY ({{passed_date_value}}) OVER ALL BRANCH WISE LOGIN DATA</h3> <button type="button" class="btn btn-secondary" (click)="filter_2()" *ngIf="Admin_check == null"> FILTER</button>
+    <h3 *ngIf="Admin_check !== null">TODAY ({{passed_date_value}}) BRANCH WISE LOGIN DATA</h3> <button type="button" class="btn btn-secondary" (click)="filter_2()" *ngIf="Admin_check !== null"> FILTER</button>
+
   </div>
   <div class="row">
     <div class="col-md-12" style="background: white;padding: 10px;margin: 10px;">
@@ -133,12 +136,13 @@
       </div>
       <div class="col-md-4">
         <button type="button" class="btn btn-secondary" (click)="exceldownload2()"> Excel</button>
+        <button type="button" class="btn btn-secondary" (click)="show_grp_two_action()"> View Graph</button>
       </div>
       <br>
       <br>
 
     <div class="col-md-12">
-    <p-table [value]="selected_branch | filter:searchQRbranch" styleClass="ui-table-customers" #tt [paginator]="true" [rows]="5"
+    <p-table [value]="selected_branch | filter:searchQRbranch" styleClass="ui-table-customers" #tt [paginator]="true" [rows]="10"
                   [rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true"
                   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['type']">
                   <ng-template pTemplate="header">
@@ -160,8 +164,8 @@
                     <td>{{item.emp_type}}</td>
                     <td>{{item.user_location}}</td>
                     <td>{{item.user_type}}</td>
-                    <td style="font-size: 12px;" *ngIf="item.last_login_time == '-'"  >{{item.last_login_time}}</td>
-                    <td style="font-size: 12px;" *ngIf="item.last_login_time !== '-'"  >{{item.last_login_time | date : 'HH:mm'}}</td>
+                    <td  *ngIf="item.last_login_time == '-'"  >{{item.last_login_time}}</td>
+                    <td  *ngIf="item.last_login_time !== '-'"  >{{item.last_login_time | date : 'HH:mm'}}</td>
                     
                     <td *ngIf="item.Documents == ''" >-</td>
                     <td *ngIf="item.Documents !== ''" >{{item.last_logout_time | date : 'HH:mm'}}</td>
@@ -177,7 +181,9 @@
 
   <div class="col-md-12">
   <div style="text-align: center;">
-    <h3>TODAY ({{passed_date_value}}) OVER ALL BRANCH WISE LOGIN GRAPH</h3>
+    <h3 *ngIf="Admin_check == null">TODAY ({{passed_date_value}}) OVER ALL BRANCH WISE LOGIN GRAPH</h3>
+    <h3 *ngIf="Admin_check !== null">TODAY ({{passed_date_value}}) BRANCH WISE LOGIN GRAPH</h3>
+
   </div>
     <hr>
     <div style="display: block">

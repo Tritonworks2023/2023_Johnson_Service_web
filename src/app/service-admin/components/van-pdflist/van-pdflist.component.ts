@@ -1,0 +1,51 @@
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../api.service';
+import { CurrentLoginComponent } from '../../components/current-login/current-login.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Pipe, PipeTransform } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
+import { ExcelService } from '../../../excel.service';
+
+@Component({
+  selector: 'app-van-pdflist',
+  templateUrl: './van-pdflist.component.html',
+  styleUrls: ['./van-pdflist.component.css']
+})
+export class VanPdflistComponent implements OnInit {
+
+  
+  rows:any;  
+  data:any;
+  searchQR;
+  access_tocken:any
+  Admin_check:any
+  final_data = [];
+  value:any;
+  newexcel: any;
+  exceldata: any;
+  constructor(private router:Router,private _api: ApiService, public dialog: MatDialog,private excelservice: ExcelService) { }
+
+  ngOnInit(): void {
+    this.Admin_check = JSON.parse(sessionStorage.getItem('Sub_Admin_login') );
+    this.access_tocken = sessionStorage.getItem('access_tocken') ;
+    if( this.access_tocken ==null){
+       this.router.navigateByUrl('/service-login');
+    }else{
+  this._api.get_van_list().subscribe((data:any)=>{
+  this.rows = data['Data'];
+  console.log(this.rows);
+  this.exceldata=this.rows;
+    });
+  }
+  }
+  refersh(){
+    this.ngOnInit();
+
+  }
+
+  click(data){
+    window.open('/#/van_pdf_view/'+data.SMU_JOBNO+"_"+data.SMU_MRSEQNO, "_blank");
+  }
+
+}

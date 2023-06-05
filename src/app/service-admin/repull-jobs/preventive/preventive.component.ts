@@ -33,13 +33,20 @@ export class PreventiveComponent implements OnInit {
 }
 
 getRecords(){
-  debugger
+  
   var obj={
     user_mobile_no:this.user_mobile_no
   }
   this._api.preventive_oracel_data(obj).subscribe((response: any) => {
     this.rows=response['Data'];
+    this.rows = this.rows.sort((a, b) => a.SMU_SCH_COMPDT > b.SMU_SCH_COMPDT ? 1 : -1);
     
+    this.rows.forEach(element => {
+      element.SMU_SCH_COMPDT = new Date(element.SMU_SCH_COMPDT);
+    });
+
+
+
   })
 }
   refersh(){
@@ -48,8 +55,26 @@ getRecords(){
     }
     this._api.preventive_oracel_data(obj).subscribe((response: any) => {
       this.rows=response['Data'];
+      this.rows = this.rows.sort((a, b) => a.SMU_SCH_COMPDT > b.SMU_SCH_COMPDT ? 1 : -1);
+
+      this.rows.forEach(element => {
+        element.SMU_SCH_COMPDT = new Date(element.SMU_SCH_COMPDT);
+      });
       
     })
+  }
+
+  make_no(data){
+  console.log(data.SMU_SCH_COMPNO);
+
+  var obj={
+    SMU_SCH_COMPNO:data.SMU_SCH_COMPNO
+  }
+  this._api.breakdown_oracel_data_update(obj).subscribe((response: any) => {
+    this.rows=response['Data'];
+    
+    this.refersh();
+  })
   }
 
 }

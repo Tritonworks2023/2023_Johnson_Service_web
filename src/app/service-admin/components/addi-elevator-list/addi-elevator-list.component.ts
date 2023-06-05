@@ -32,7 +32,8 @@ export class AddiElevatorListComponent implements OnInit {
        this.router.navigateByUrl('/service-login');
     }else{
   this._api.get_additional_for_elevator().subscribe((data:any)=>{
-  this.rows=data['Data']
+  this.rows=data['Data'];
+  console.log(this.rows);
   this.exceldata=this.rows;
     });
   }

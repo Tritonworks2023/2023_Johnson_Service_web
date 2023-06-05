@@ -403,6 +403,13 @@ var year = new Date(new Date().getFullYear() , 0, 1);
     // this.router.navigate(['/service-admin/preventive-maintenance-Pdf'])
   }
 
+  view_mr_2(data,type) {
+    
+    this.storage.set('job_detail', data);
+    window.open('/#/mr_view_details/'+data.OM_OSA_JOBNO+"_"+data.OM_OSA_COMPNO+"_"+type, "_blank");
+    // this.router.navigate(['/service-admin/preventive-maintenance-Pdf'])
+  }
+
 
 
   onDrop(event: CdkDragDrop<string[]>) {

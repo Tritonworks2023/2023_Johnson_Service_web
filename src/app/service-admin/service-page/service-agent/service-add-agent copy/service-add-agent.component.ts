@@ -266,7 +266,6 @@ else{
         "device_no":this.employeeForm.value.device_no,
         "stauts": this.employeeForm.value.status == "Active" ? 0:1
         }
-      debugger
         this._api.oracel_update_emp(obj).subscribe((response: any) => {
         })
 

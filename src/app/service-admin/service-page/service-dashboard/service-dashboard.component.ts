@@ -17,6 +17,11 @@ import { ServiceEmployeePopupComponent } from '../../components/service-employee
 export class ServiceDashboardComponent implements OnInit {
  
 
+  show_grp_one = false;
+  show_grp_two = false;
+
+
+
   ///grap details///
   barChartData:any=[
     {data:[100], label: 'No of User'},
@@ -233,14 +238,6 @@ export class ServiceDashboardComponent implements OnInit {
 
   this._api.attendence(this.data).subscribe((data:any)=>{
   this.temp_logout_person = data['Data'];
-  
-
-
-
-
-
-
-
    this.total_list_all.forEach(element => {
     var date = new DatePipe('en-US').transform(todaydate,'dd/MM/yyyy');
     var valued_date = new DatePipe('en-US').transform(element.last_login_time,'dd/MM/yyyy');
@@ -266,6 +263,8 @@ export class ServiceDashboardComponent implements OnInit {
     this.Admin_check = JSON.parse(sessionStorage.getItem('Sub_Admin_login') );
     var access_loc = JSON.parse(sessionStorage.getItem('access_loc') );
 
+    console.log("Admin_check",this.Admin_check);
+    console.log("access_loc",access_loc);
 
     if(this.Admin_check == null) {
      this._api.getBranchList().subscribe((response: any) => {
@@ -285,13 +284,16 @@ export class ServiceDashboardComponent implements OnInit {
   else {
      this.branchList = access_loc;
      this.branchList.forEach(element => {
-      element.count_value_total = 0;
-      element.count_value_present = 0;
-      element.count_value_logout = 0;
-      element.count_value_notlogin = 0;
+        element.count_value_total = 0;
+        element.count_value_present = 0;
+        element.count_value_logout = 0;
+        element.count_value_notlogin = 0;
+        element.check_status = false;
+        element.data = [];
     });
+    this.branchList = this.branchList.sort((a, b) => a.branch_code > b.branch_code ? 1 : -1);
+    this.selected_location = this.branchList[0].branch_code;
   }
-  this.selected_location = this.branchList[0].branch_code;
   }
   }
 
@@ -390,20 +392,16 @@ public chartHovered(e:any):void {
 
 
   search_passed_date(){
-
-  
    this._api.service_employee_list().subscribe((data:any)=>{
       this.rows=data['Data']
       this.exceldata=this.rows;
       this.data=this.rows;
-      ;
       this.total_list_all = [];
       this.total_login = [];
       this.total_logout = [];
       let newdate = new Date(this.passed_date_value);
       let todaydate = new Date(this.passed_date_value);
        newdate.setDate(newdate.getDate() + 1)
-    
       this.total_list_all = this.rows;
   this.data={
       "from_date": new DatePipe('en-US').transform(todaydate,'dd/MM/yyyy') ,
@@ -411,11 +409,9 @@ public chartHovered(e:any):void {
   }
   this._api.attendence(this.data).subscribe((data:any)=>{
   this.temp_logout_person=data['Data']
-  
    this.total_list_all.forEach(element => {
     this.temp_logout_person.forEach(elements => {
          if(""+elements.EMPLOYEE_ID == ""+element.user_id){
-          
           element.last_login_time = elements.INTIME;
           element.last_logout_time = elements.OUTTIME;
           element.Documents = elements.LOGOUTREASON;
@@ -515,6 +511,7 @@ public chartHovered(e:any):void {
   for(let a = 0 ; a < this.branchList.length ; a++){
        var value = 0;
        this.branchList[a].count_value_present = 0;
+       this.branchList[a].count_value_total = 0;
        for(let b = 0; b < this.total_list_all.length; b++){
           if(this.total_list_all[b].user_location  == this.branchList[a].branch_code && this.total_list_all[b].user_type == 'Log In'){
             value = value + 1;
@@ -583,5 +580,25 @@ public chartHovered(e:any):void {
    previous_day(){
     this.router.navigateByUrl('/service-admin/Previous_date_service_dashboard');
    }
+
+   show_grp_one_action(){
+     
+     if(this.show_grp_one == false){
+      this.show_grp_one = true;
+     } else {
+      this.show_grp_one = false;
+     }
+
+   }
+
+   show_grp_two_action(){
+
+    if(this.show_grp_two == false){
+     this.show_grp_two = true;
+    } else {
+     this.show_grp_two = false;
+    }
+
+  }
         
 }
